@@ -28,7 +28,7 @@ content:
   email: test@example.org
   phone: 888 888 88 88
   address:
-    street: 450 Serra Mall
+    street: 222 Serra Mall
     city: Stanford
     region: CA
     postcode: '94305'
