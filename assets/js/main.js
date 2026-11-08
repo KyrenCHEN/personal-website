@@ -133,3 +133,10 @@
     });
   });
 })();
+
+document.querySelectorAll('.more-btn').forEach(b => b.addEventListener('click', () => {
+  const list = document.querySelector(b.dataset.target);
+  const collapsed = list.dataset.collapsed === 'true';
+  list.dataset.collapsed = String(!collapsed);
+  b.textContent = collapsed ? b.dataset.less : b.dataset.more;
+}));

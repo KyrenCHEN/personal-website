@@ -1,76 +1,105 @@
 {{ define "main" }}
 {{- $d := index hugo.Data site.Language.Name -}}
 {{- $s := hugo.Data.site -}}
+{{- $lang := site.Language.Name -}}
 {{- $news := where site.RegularPages "Section" "news" -}}
 {{- $pubs := hugo.Data.publications -}}
+{{- $talks := hugo.Data.talks -}}
+{{- $updates := hugo.Data.updates -}}
 
 <section class="hero">
   <canvas class="hero__field" aria-hidden="true"></canvas>
-  <div class="wrap hero__inner">
-    <figure class="hero__photo">
-      <img src="{{ $s.photo | relURL }}" alt="{{ $d.name }}" width="320" height="400">
-      <figcaption class="mono"><span>{{ printf "%.4f" $s.coords.lat }}°N</span><span>{{ printf "%.4f" $s.coords.lon }}°E</span></figcaption>
-    </figure>
-    <div class="hero__text">
-      <p class="hero__kicker mono"><span class="dot"></span><a href="{{ $d.affiliation_url }}" rel="noopener" target="_blank">{{ $d.affiliation }}</a></p>
-      <h1>{{ $d.name }} <span class="hero__alt">{{ $d.name_alt }}</span></h1>
-      <p class="hero__pos">{{ $d.position }}</p>
-      <ul class="hero__tags mono">{{ range $d.keywords }}<li>{{ . }}</li>{{ end }}</ul>
-      <div class="hero__links">
-        <a class="btn btn--solid" href="mailto:{{ $s.email }}">{{ partial "icon.html" "mail" }}{{ $s.email }}</a>
-        {{- with index $s.cv site.Language.Name }}<a class="btn" href="{{ . | relURL }}">{{ partial "icon.html" "cv" }}CV</a>{{ end }}
+  <div class="wrap about">
+    <div class="profile">
+      <figure class="profile__photo"><img src="{{ $s.photo | relURL }}" alt="{{ $d.name }}" width="320" height="400"></figure>
+      <h1 class="profile__name">{{ $d.name }}</h1>
+      <p class="profile__alt">{{ $d.name_alt }}</p>
+      <p class="profile__pos">{{ $d.position }}</p>
+      <p class="profile__aff"><a href="{{ $d.affiliation_url }}" rel="noopener" target="_blank">{{ $d.affiliation }}</a></p>
+      <div class="profile__links">
+        <a class="btn btn--icon" href="mailto:{{ $s.email }}" title="{{ $s.email }}" aria-label="Email">{{ partial "icon.html" "mail" }}</a>
+        {{- with index $s.cv $lang }}<a class="btn btn--icon" href="{{ . | relURL }}" title="CV" aria-label="CV">{{ partial "icon.html" "cv" }}</a>{{ end }}
         {{- range $s.links }}
         <a class="btn btn--icon" href="{{ .url }}" title="{{ .name }}" aria-label="{{ .name }}" rel="noopener" target="_blank">{{ partial "icon.html" .icon }}</a>
         {{- end }}
       </div>
     </div>
+    <div class="about__body">
+      <h2 class="about__h">{{ i18n "about" }}</h2>
+      <div class="prose">{{ $d.bio_short | .RenderString }}</div>
+      <div class="about__cols">
+        <div>
+          <h3 class="sub mono">{{ i18n "interests" }}</h3>
+          <ul class="ilist">
+            {{- range $d.interests }}<li><span class="ilist__ico">{{ partial "icon.html" .icon }}</span>{{ .title }}</li>{{ end }}
+          </ul>
+        </div>
+        <div>
+          <h3 class="sub mono">{{ i18n "education" }}</h3>
+          <ul class="edu">
+            {{- range $d.education }}
+            <li>{{ partial "icon.html" "scholar" }}<div><strong>{{ .title }}</strong>, {{ index (split .period " – ") 1 | default .period }}<span class="muted">{{ .org }}</span></div></li>
+            {{- end }}
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="hero__readout mono wrap" aria-hidden="true">
-    <span>EPSG:4326</span><span class="hero__clock">UTC+8</span>
-    <span>{{ len $pubs }} PUBS · {{ len $d.grants }} GRANTS · {{ len $news }} UPDATES</span>
+    <span>{{ printf "%.4f°N  %.4f°E" $s.coords.lat $s.coords.lon }}</span><span class="hero__clock">UTC+8</span>
+    <span>{{ len $pubs }} PUBS · {{ len $d.grants }} GRANTS · {{ len $updates }} UPDATES</span>
   </div>
 </section>
 
+{{- $n := 0 }}
 <div class="wrap home">
-  <div class="home__main">
-    <section class="block">
-      {{ partial "sec-head.html" (dict "n" 1 "title" (i18n "about") "more" (dict "url" (relLangURL "bio/") "label" (i18n "bio"))) }}
-      <div class="prose">{{ $d.bio_short | .RenderString }}</div>
-    </section>
-
-    {{- with $news }}
-    <section class="block">
-      {{ partial "sec-head.html" (dict "n" 2 "title" (i18n "latest_news") "more" (dict "url" (relLangURL "news/") "label" (i18n "all_news"))) }}
-      <div class="ngrid">
-        {{- range first 4 . }}{{ partial "news-card.html" . }}{{ end }}
-      </div>
-    </section>
+  {{- with $updates }}{{ $n = add $n 1 }}
+  <section class="block">
+    {{ partial "sec-head.html" (dict "n" $n "title" (i18n "updates")) }}
+    <ol class="updates" data-collapsed="true">
+      {{- range $i, $u := . }}
+      {{- $txt := (index $u $lang) | default $u.zh | markdownify }}
+      <li{{ if ge $i 6 }} class="is-extra"{{ end }}>
+        <span class="updates__d mono">{{ $u.date }}</span>
+        <p>{{ with $u.url }}<a href="{{ if hasPrefix . "/" }}{{ relLangURL (strings.TrimPrefix "/" .) }}{{ else }}{{ . }}{{ end }}">{{ $txt }}</a>{{ else }}{{ $txt }}{{ end }}</p>
+      </li>
+      {{- end }}
+    </ol>
+    {{- if gt (len .) 6 }}
+    <button class="more-btn mono" type="button" data-target=".updates" data-more="{{ i18n "show_all" }} ({{ len . }})" data-less="{{ i18n "show_less" }}">{{ i18n "show_all" }} ({{ len . }})</button>
     {{- end }}
+  </section>
+  {{- end }}
 
-    <section class="block">
-      {{ partial "sec-head.html" (dict "n" 3 "title" (i18n "selected_pubs") "more" (dict "url" (relLangURL "publications/") "label" (i18n "all_pubs"))) }}
-      <ol class="pubs">{{ range first 5 $pubs }}{{ partial "pub.html" (dict "p" .) }}{{ end }}</ol>
-    </section>
-  </div>
+  {{- with $news }}{{ $n = add $n 1 }}
+  <section class="block">
+    {{ partial "sec-head.html" (dict "n" $n "title" (i18n "latest_news") "more" (dict "url" (relLangURL "news/") "label" (i18n "all_news"))) }}
+    <div class="ngrid ngrid--3">{{ range first 3 . }}{{ partial "news-card.html" . }}{{ end }}</div>
+  </section>
+  {{- end }}
 
-  <aside class="home__side">
-    <section class="panel">
-      <h2 class="panel__title mono">{{ i18n "interests" }}</h2>
-      <ul class="ilist">
-        {{- range $d.interests }}<li><span class="ilist__ico">{{ partial "icon.html" .icon }}</span>{{ .title }}</li>{{ end }}
-      </ul>
-      <a class="panel__more" href="{{ relLangURL "research/" }}">{{ i18n "research" }} {{ partial "icon.html" "right" }}</a>
-    </section>
-    <section class="panel">
-      <h2 class="panel__title mono">{{ i18n "contact" }}</h2>
-      {{ partial "contact.html" . }}
-    </section>
-    {{- with $d.recruit }}
-    <section class="panel panel--accent">
-      <h2 class="panel__title mono">{{ i18n "recruit" }}</h2>
-      <div class="prose small">{{ . | $.RenderString }}</div>
-    </section>
-    {{- end }}
-  </aside>
+  {{- $n = add $n 1 }}
+  <section class="block">
+    {{ partial "sec-head.html" (dict "n" $n "title" (i18n "selected_pubs") "more" (dict "url" (relLangURL "publications/") "label" (i18n "all_pubs"))) }}
+    <ol class="pubs">{{ range first 5 $pubs }}{{ partial "pub.html" (dict "p" .) }}{{ end }}</ol>
+  </section>
+
+  {{- with $talks }}{{ $n = add $n 1 }}
+  <section class="block">
+    {{ partial "sec-head.html" (dict "n" $n "title" (i18n "talks")) }}
+    {{ partial "talks.html" (first 5 .) }}
+  </section>
+  {{- end }}
+
+  {{- $n = add $n 1 }}
+  <section class="block">
+    {{ partial "sec-head.html" (dict "n" $n "title" (i18n "contact")) }}
+    <div class="cols">
+      <div>{{ partial "contact.html" . }}</div>
+      {{- with $d.recruit }}
+      <div class="callout"><h3 class="sub mono">{{ i18n "recruit" }}</h3><div class="prose small">{{ . | $.RenderString }}</div></div>
+      {{- end }}
+    </div>
+  </section>
 </div>
 {{ end }}

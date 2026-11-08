@@ -27,5 +27,11 @@
       {{- end }}
     </ul>
   </section>
+  {{- with hugo.Data.talks }}
+  <section class="block">
+    {{ partial "sec-head.html" (dict "n" 3 "title" (i18n "talks")) }}
+    {{ partial "talks.html" . }}
+  </section>
+  {{- end }}
 </div>
 {{ end }}
