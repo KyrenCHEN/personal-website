@@ -1,0 +1,25 @@
+# Shared by both language versions. Newest first.
+# flags: corresponding | equal ; tags: free text shown as badges (e.g. "ESI Highly Cited")
+- year: 2025
+  authors: "A. Author, Y. Name*, B. Author"
+  title: "Placeholder: Satellite-derived heat exposure and cardiovascular mortality across Chinese megacities"
+  venue: "Environmental Health Perspectives"
+  doi: 10.0000/placeholder.2025.001
+  flags: [corresponding]
+- year: 2024
+  authors: "Y. Name, C. Author, D. Author"
+  title: "Placeholder: A multi-sensor deep learning framework for fine-scale PM2.5 mapping"
+  venue: "Remote Sensing of Environment"
+  doi: 10.0000/placeholder.2024.002
+  tags: ["ESI Highly Cited"]
+- year: 2024
+  authors: "E. Author, Y. Name, F. Author"
+  title: "Placeholder: Quantifying urban vitality with nighttime light and mobile-phone data"
+  venue: "Landscape and Urban Planning"
+  doi: 10.0000/placeholder.2024.003
+- year: 2023
+  authors: "Y. Name, G. Author"
+  title: "Placeholder: Climate-driven shifts in urban green space cooling efficiency"
+  venue: "Nature Communications"
+  doi: 10.0000/placeholder.2023.004
+  flags: [equal]

@@ -1,0 +1,86 @@
+name: Your Name
+position: Associate Professor · Doctoral Supervisor
+affiliation: School of Geospatial Engineering and Science, Sun Yat-sen University
+affiliation_url: https://sges.sysu.edu.cn/
+keywords: [GIScience, Remote Sensing, Environmental Health, Urban Climate]
+description: Personal academic homepage — GIScience, remote sensing, environmental health and urban climate.
+
+about: |
+  I am an Associate Professor at the School of Geospatial Engineering and Science, Sun Yat-sen University.
+  My research couples **Earth observation**, **spatial data science** and **epidemiological modeling** to
+  quantify how environmental exposures in cities — heat, air pollution and green space — shape human health
+  under a changing climate.
+
+  *Placeholder text — replace with your own biography.*
+
+research:
+  - icon: satellite
+    title: Remote Sensing of Urban Environments
+    text: Multi-sensor retrieval of land surface temperature, aerosols and land cover at fine spatiotemporal resolution.
+  - icon: pulse
+    title: Environmental Health & Exposure Science
+    text: Spatiotemporal exposure assessment linking heat and air pollution to mortality and morbidity.
+  - icon: globe
+    title: Global Climate Change
+    text: Climate-driven shifts in urban heat risk, adaptation capacity and nature-based solutions.
+  - icon: grid
+    title: Urban Vitality & GeoAI
+    text: Deep learning on imagery, mobility and street-view data to characterize human activity in cities.
+
+education:
+  - period: 2016 – 2021
+    title: Ph.D., Cartography and Geographic Information Systems
+    org: University Name
+  - period: 2019 – 2020
+    title: Visiting Ph.D. Student
+    org: University Name
+  - period: 2012 – 2016
+    title: B.Sc., Remote Sensing Science and Technology
+    org: University Name
+
+employment:
+  - period: 2024 – present
+    title: Associate Professor
+    org: School of Geospatial Engineering and Science, Sun Yat-sen University
+  - period: 2021 – 2024
+    title: Postdoctoral Fellow
+    org: University Name
+
+projects:
+  - period: 2025 – 2028
+    title: "Placeholder: Fine-scale heat exposure modeling and health risk assessment in megacities"
+    funder: National Natural Science Foundation of China (General Program)
+    role: PI
+  - period: 2023 – 2025
+    title: "Placeholder: Multi-source remote sensing of urban air quality"
+    funder: National Natural Science Foundation of China (Young Scientists Fund)
+    role: PI
+  - period: 2022 – 2026
+    title: "Placeholder: Climate change and urban health resilience"
+    funder: National Key R&D Program of China (Subproject)
+    role: Co-PI
+
+awards:
+  - year: 2024
+    text: "Placeholder: Young Talent Program"
+  - year: 2022
+    text: "Placeholder: Outstanding Doctoral Dissertation Award"
+
+service:
+  - "Associate Editor, *Journal Name*"
+  - "Reviewer for *Remote Sensing of Environment*, *Environment International*, *Nature Communications*"
+  - "Member, International Society for Environmental Epidemiology (ISEE)"
+
+courses:
+  - Principles of Remote Sensing (Undergraduate)
+  - Spatial Statistics and Geographic Data Science (Graduate)
+
+recruit: |
+  I am looking for **Ph.D. / M.Sc. students**, **postdocs** and **research assistants** with backgrounds in
+  GIS, remote sensing, environmental science, public health or computer science. Please email your CV and a
+  short statement of research interests.
+
+contact:
+  office: Room XXX, Haiqin Building X, Zhuhai Campus
+  address: Sun Yat-sen University, Zhuhai, Guangdong 519082, China
+  phone: ""

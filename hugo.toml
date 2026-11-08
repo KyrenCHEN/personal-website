@@ -1,0 +1,24 @@
+baseURL = "https://your-site.netlify.app/"
+title = "Your Name"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "section", "rss"]
+
+[languages.en]
+  label = "EN"
+  locale = "en-US"
+  weight = 1
+  title = "Your Name · Sun Yat-sen University"
+
+[languages.zh]
+  label = "中文"
+  locale = "zh-CN"
+  weight = 2
+  title = "姓名 · 中山大学"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[outputs]
+  home = ["html"]

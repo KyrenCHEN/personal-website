@@ -1,0 +1,22 @@
+{{- $d := index hugo.Data site.Language.Name -}}
+<header class="nav" id="top">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="{{ site.Home.RelPermalink }}">
+      <span class="nav__mark" aria-hidden="true"></span>{{ $d.name }}
+    </a>
+    <nav class="nav__links" aria-label="Sections">
+      {{- range partial "sections.html" . }}
+      <a href="#{{ . }}" data-spy="{{ . }}">{{ i18n . }}</a>
+      {{- end }}
+    </nav>
+    <div class="nav__lang">
+      {{- range site.Home.AllTranslations }}
+        {{- if eq .Language.Name site.Language.Name }}
+        <span aria-current="true">{{ .Language.Label }}</span>
+        {{- else }}
+        <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" lang="{{ .Language.Locale }}">{{ .Language.Label }}</a>
+        {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</header>

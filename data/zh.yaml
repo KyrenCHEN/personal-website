@@ -1,0 +1,83 @@
+name: 姓名
+position: 副教授 · 博士生导师
+affiliation: 中山大学 测绘科学与技术学院
+affiliation_url: https://sges.sysu.edu.cn/
+keywords: [地理信息科学, 遥感, 环境健康, 城市气候]
+description: 个人学术主页——地理信息科学、遥感、环境健康与城市气候。
+
+about: |
+  中山大学测绘科学与技术学院副教授、博士生导师。主要从事**对地观测**、**空间数据科学**与**环境流行病学**交叉研究，
+  聚焦全球气候变化背景下城市高温、大气污染与绿色空间等环境暴露的时空格局及其健康效应。
+
+  *占位文本——请替换为您的个人简介。*
+
+research:
+  - icon: satellite
+    title: 城市环境遥感
+    text: 多源遥感协同反演地表温度、气溶胶与土地覆盖，构建高时空分辨率城市环境数据集。
+  - icon: pulse
+    title: 环境健康与暴露评估
+    text: 高温与大气污染的时空暴露评估及其与死亡、发病风险的关联研究。
+  - icon: globe
+    title: 全球气候变化
+    text: 气候变化驱动下的城市热风险演变、适应能力与基于自然的解决方案。
+  - icon: grid
+    title: 城市活力与 GeoAI
+    text: 融合影像、人群移动与街景数据的深度学习方法，刻画城市人类活动特征。
+
+education:
+  - period: 2016 – 2021
+    title: 博士，地图学与地理信息系统
+    org: 某大学
+  - period: 2019 – 2020
+    title: 联合培养博士
+    org: 某大学
+  - period: 2012 – 2016
+    title: 学士，遥感科学与技术
+    org: 某大学
+
+employment:
+  - period: 2024 – 至今
+    title: 副教授
+    org: 中山大学 测绘科学与技术学院
+  - period: 2021 – 2024
+    title: 博士后
+    org: 某大学
+
+projects:
+  - period: 2025 – 2028
+    title: 占位：特大城市精细尺度高温暴露建模与健康风险评估
+    funder: 国家自然科学基金面上项目
+    role: 主持
+  - period: 2023 – 2025
+    title: 占位：多源遥感协同的城市空气质量监测
+    funder: 国家自然科学基金青年科学基金项目
+    role: 主持
+  - period: 2022 – 2026
+    title: 占位：气候变化与城市健康韧性
+    funder: 国家重点研发计划课题
+    role: 骨干
+
+awards:
+  - year: 2024
+    text: 占位：青年人才计划
+  - year: 2022
+    text: 占位：优秀博士学位论文
+
+service:
+  - "*期刊名称* 副主编"
+  - "*Remote Sensing of Environment*、*Environment International*、*Nature Communications* 等期刊审稿人"
+  - 国际环境流行病学会（ISEE）会员
+
+courses:
+  - 遥感原理（本科生）
+  - 空间统计与地理数据科学（研究生）
+
+recruit: |
+  课题组长期招收**博士、硕士研究生**、**博士后**及**科研助理**，欢迎地理信息科学、遥感、环境科学、公共卫生、
+  计算机科学等背景的同学加入。请将个人简历及研究兴趣简述发送至邮箱。
+
+contact:
+  office: 珠海校区 海琴X号楼 XXX 室
+  address: 广东省珠海市 中山大学 519082
+  phone: ""

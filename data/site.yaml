@@ -1,0 +1,30 @@
+# Shared across both languages.
+email: your.name@mail.sysu.edu.cn
+photo: images/avatar.svg          # replace with images/avatar.jpg (portrait, ~4:5)
+cv:
+  en: uploads/cv_en.pdf           # place files in static/uploads/; leave empty to hide
+  zh: uploads/cv_zh.pdf
+
+# Hero readout; set to your campus/lab coordinates.
+coords:
+  lat: 22.3497
+  lon: 113.5853
+
+links:
+  - name: Google Scholar
+    icon: scholar
+    url: https://scholar.google.com/citations?user=XXXXXXXX
+  - name: ORCID
+    icon: orcid
+    url: https://orcid.org/0000-0000-0000-0000
+  - name: ResearchGate
+    icon: researchgate
+    url: https://www.researchgate.net/profile/Your-Name
+  - name: GitHub
+    icon: github
+    url: https://github.com/KyrenCHEN
+
+# Author-name variants to bold in publication lists.
+highlight:
+  - Y. Name
+  - Name Y.
