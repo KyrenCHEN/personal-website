@@ -1,5 +1,11 @@
 # Journal articles, newest first. Mark corresponding authors with "*".
-# Optional fields: doi (e.g. 10.1080/13658816.2025.xxxxxxx), url, note.
+# Optional fields (each adds a small button under the paper):
+#   doi: 10.1080/13658816.2025.xxxxxxx
+#   pdf: uploads/papers/cba-2025.pdf     (file in static/uploads/, or a full URL)
+#   code: https://github.com/...
+#   data: https://...
+#   slides: uploads/slides/...pdf
+#   links: [{name: Media, url: https://...}]
 - year: 2025
   authors: "Chen, P.*, Gong, M., & Li, S."
   title: "The cost-balanced accessibility (CBA) model: a new framework for measuring urban accessibility with multi-objective considerations"

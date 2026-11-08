@@ -41,22 +41,40 @@ Front matter:
 ---
 title: 论文发表于 Remote Sensing of Environment
 date: 2026-03-15
-category: paper      # paper | award | talk | event | media | team
+category: paper            # paper | award | talk | event | media | team (sets card color)
+keywords: [遥感, 绿视率]     # colored chips under the title
+pdf: paper.pdf             # buttons under the title: a file in this folder or a full URL
+code: https://github.com/...
+data: https://...
+slides: talk.pdf
+links:
+  - name: 项目主页
+    url: https://...
 ---
 ```
 
-Media shortcodes inside the text:
+Writing syntax:
 
 | Purpose | Syntax |
 |---|---|
+| Yellow highlight | `==text==` |
+| Colored highlight | `{{< hl blue >}}text{{< /hl >}}` (blue, green, red, violet, yellow) |
+| Sub / superscript | `PM~2.5~`, `R^2^` |
+| Strikethrough | `~~text~~` |
+| Callout box | `> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]`, `> [!CAUTION]` (optional title after the tag) |
 | Image (click to enlarge) | `{{< img src="photo.jpg" caption="..." >}}` |
-| Local video | `{{< video src="talk.mp4" poster="cover.jpg" caption="..." >}}` |
-| Bilibili | `{{< bilibili id="BV1xx411c7mD" >}}` |
-| YouTube | `{{< youtube VIDEO_ID >}}` |
+| Local video | `{{< video src="talk.mp4" poster="cover.jpg" >}}` |
+| Bilibili / YouTube | `{{< bilibili id="BV1xx411c7mD" >}}`, `{{< youtube VIDEO_ID >}}` |
 | Photo album | `{{< gallery >}}` (all images in `gallery/`) |
+| PDF (viewer on desktop, card on phones) | `{{< pdf src="paper.pdf" title="..." >}}` |
+| Code file with download | `{{< code file="analysis.py" >}}` |
+| Inline code block | fenced block with a language, e.g. ` ```python ` |
+
+Highlights and sub/superscripts also work in the YAML text fields (bio, research, updates).
+Publications accept the same `pdf / code / data / slides / doi / links` fields (see `data/publications.yaml`).
 
 Images are resized and converted to WebP automatically. Keep local videos under ~20 MB; host longer ones on Bilibili.
-`content/news/sample-media-post/` demonstrates every format — delete it when no longer needed.
+`content/news/sample-media-post/` demonstrates every feature — delete it when no longer needed.
 
 ## Local preview
 

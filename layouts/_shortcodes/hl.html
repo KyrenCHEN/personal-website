@@ -1,0 +1,3 @@
+{{- /* {{< hl green >}}text{{< /hl >}} — colors: yellow (default) | blue | green | red | violet */ -}}
+<mark class="hl-{{ .Get 0 | default "yellow" }}">{{ .Inner | .Page.RenderString }}</mark>
+{{- /**/ -}}

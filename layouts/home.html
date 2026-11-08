@@ -23,7 +23,7 @@
   <ol class="updates" data-collapsed="true">
     {{- range $i, $u := . }}
     {{- $txt := (index $u $lang) | default $u.zh | markdownify }}
-    <li class="{{ if eq $i 0 }}is-new{{ end }}{{ if ge $i 5 }} is-extra{{ end }}">
+    <li class="t-{{ $u.type | default "paper" }}{{ if eq $i 0 }} is-new{{ end }}{{ if ge $i 5 }} is-extra{{ end }}">
       <time class="mono">{{ $u.date }}</time>
       <p>{{ with $u.url }}<a href="{{ if hasPrefix . "/" }}{{ relLangURL (strings.TrimPrefix "/" .) }}{{ else }}{{ . }}{{ end }}">{{ $txt }}</a>{{ else }}{{ $txt }}{{ end }}</p>
     </li>

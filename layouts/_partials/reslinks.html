@@ -1,0 +1,21 @@
+{{- /* Resource buttons. ctx: dict "m" params ["page" page — resolves bundle file names].
+     Keys: pdf, code, data, slides, video, doi, links:[{name,url}] — values are bundle file names or URLs. */ -}}
+{{- $page := .page -}}
+{{- $m := .m -}}
+{{- $kinds := slice (dict "k" "pdf" "label" "PDF" "icon" "doc" "c" "c4") (dict "k" "code" "label" "Code" "icon" "code" "c" "c5") (dict "k" "data" "label" "Data" "icon" "db" "c" "c2") (dict "k" "slides" "label" "Slides" "icon" "slides" "c" "c3") (dict "k" "video" "label" "Video" "icon" "play" "c" "c4") -}}
+{{- $out := slice -}}
+{{- range $kd := $kinds }}
+  {{- with index $m $kd.k }}
+    {{- $u := . }}
+    {{- if and $page (not (strings.Contains . "://")) }}{{ with $page.Resources.Get . }}{{ $u = .RelPermalink }}{{ else }}{{ $u = relURL . }}{{ end }}
+    {{- else if not (strings.Contains . "://") }}{{ $u = relURL . }}{{ end }}
+    {{- $out = $out | append (dict "url" $u "label" $kd.label "icon" $kd.icon "c" $kd.c) }}
+  {{- end }}
+{{- end }}
+{{- with index $m "doi" }}{{ $out = $out | append (dict "url" (print "https://doi.org/" .) "label" "DOI" "icon" "link" "c" "c1") }}{{ end }}
+{{- range index $m "links" }}{{ $out = $out | append (dict "url" .url "label" .name "icon" (.icon | default "link") "c" "c1") }}{{ end }}
+{{- with $out }}
+<div class="res">
+  {{- range . }}<a class="res__a {{ .c }}" href="{{ .url }}" rel="noopener" target="_blank">{{ partial "icon.html" .icon }}{{ .label }}</a>{{ end }}
+</div>
+{{- end }}

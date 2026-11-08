@@ -4,6 +4,8 @@
   <header class="phead reveal">
     <p class="phead__crumb mono"><a href="{{ .Parent.RelPermalink }}">{{ i18n "news" }}</a> / <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time> · {{ i18n (print "cat_" $cat) }}</p>
     <h1>{{ .Title }}</h1>
+    {{ partial "keywords.html" . }}
+    {{ partial "reslinks.html" (dict "m" .Params "page" .) }}
   </header>
   <div class="prose post__body">
     {{- with .Resources.GetMatch "cover.*" }}{{ if not $.Params.hide_cover }}

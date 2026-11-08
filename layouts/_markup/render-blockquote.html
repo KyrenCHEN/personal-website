@@ -1,0 +1,9 @@
+{{- if eq .Type "alert" -}}
+{{- $t := lower .AlertType -}}
+<div class="callout callout--{{ $t }}">
+  <p class="callout__t">{{ with .AlertTitle }}{{ . }}{{ else }}{{ i18n (print "alert_" $t) | default (title $t) }}{{ end }}</p>
+  {{ .Text }}
+</div>
+{{- else -}}
+<blockquote>{{ .Text }}</blockquote>
+{{- end -}}

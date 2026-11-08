@@ -13,5 +13,6 @@
     <p class="pub__auth">{{ $a | safeHTML }}</p>
     <p class="pub__venue"><em>{{ $p.venue }}</em>{{ with $p.details }}, {{ . }}{{ end }}{{ if not $.n }} · {{ $p.year }}{{ end }}
       {{- range $p.tags }} <span class="badge">{{ . }}</span>{{ end }}</p>
+    {{ partial "reslinks.html" (dict "m" $p) }}
   </div>
 </li>

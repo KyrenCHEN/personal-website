@@ -1,6 +1,7 @@
 {{- $d := index hugo.Data site.Language.Name -}}
 {{- $s := hugo.Data.site -}}
 <footer class="foot">
+  <span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
   <p class="foot__sig">{{ $d.name }}</p>
   <p class="foot__meta mono">
     <span>{{ printf "%.4f°N, %.4f°E" $s.coords.lat $s.coords.lon }}</span>

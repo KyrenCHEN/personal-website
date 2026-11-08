@@ -1,0 +1,13 @@
+{{- /* {{< pdf src="paper.pdf" title="..." >}} — file in the post folder or a URL. Inline viewer on large screens, card everywhere. */ -}}
+{{- $src := .Get "src" -}}
+{{- $size := "" -}}
+{{- with .Page.Resources.Get $src }}{{ $src = .RelPermalink }}{{ $size = printf "%.1f MB" (div (float (len .Content)) 1048576) }}{{ end -}}
+{{- $title := .Get "title" | default (path.Base (.Get "src")) -}}
+<figure class="pdf">
+  <div class="pdf__card">
+    <span class="pdf__ico">PDF</span>
+    <span class="pdf__meta"><strong>{{ $title }}</strong>{{ with $size }}<span class="mono">{{ . }}</span>{{ end }}</span>
+    <a class="pdf__btn" href="{{ $src }}" target="_blank" rel="noopener">{{ partial "icon.html" "download" }}<span>{{ i18n "open" }}</span></a>
+  </div>
+  <object class="pdf__view" data="{{ $src }}#view=FitH" type="application/pdf" aria-label="{{ $title }}"></object>
+</figure>
