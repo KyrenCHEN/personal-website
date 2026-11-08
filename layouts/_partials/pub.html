@@ -1,4 +1,3 @@
-{{- /* ctx: dict "p" pub "n" number */ -}}
 {{- $p := .p -}}
 {{- $a := $p.authors -}}
 {{- $lead := false -}}
@@ -7,13 +6,12 @@
   {{- $a = replace $a . (printf "<b>%s</b>" .) }}
 {{- end }}
 {{- $url := cond (isset $p "doi") (print "https://doi.org/" $p.doi) ($p.url | default "") -}}
-<li class="pub" data-lead="{{ $lead }}">
-  {{- with .n }}<span class="pub__n mono">[{{ . }}]</span>{{ end }}
-  <div>
+<li class="pub" data-lead="{{ $lead }}" data-q="{{ lower (print $p.title " " $p.authors " " $p.venue) }}">
+  {{- with .n }}<span class="pub__n mono">{{ . }}</span>{{ end }}
+  <div class="pub__body">
     <p class="pub__title">{{ with $url }}<a href="{{ . }}" rel="noopener" target="_blank">{{ end }}{{ $p.title }}{{ with $url }}</a>{{ end }}</p>
-    <p class="pub__auth">{{ $a | safeHTML }} ({{ $p.year }})</p>
-    <p class="pub__meta"><em>{{ $p.venue }}</em>{{ with $p.details }}, {{ . }}{{ end }}
-      {{- range $p.tags }} <span class="badge">{{ . }}</span>{{ end }}
-    </p>
+    <p class="pub__auth">{{ $a | safeHTML }}</p>
+    <p class="pub__venue"><em>{{ $p.venue }}</em>{{ with $p.details }}, {{ . }}{{ end }}{{ if not $.n }} · {{ $p.year }}{{ end }}
+      {{- range $p.tags }} <span class="badge">{{ . }}</span>{{ end }}</p>
   </div>
 </li>

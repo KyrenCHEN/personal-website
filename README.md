@@ -2,11 +2,14 @@
 
 Bilingual (English / 中文) faculty website built with [Hugo](https://gohugo.io) (≥ 0.156) and deployed on [Netlify](https://www.netlify.com). Self-contained: all templates live in `layouts/`, no external theme.
 
-Pages: Home (bio + latest news + recent papers) · Biography · Research · Publications · News · Teaching & Students.
+Pages: Home · Publications (filter + search) · News · CV.
+Desktop uses a sticky profile sidebar; phones get a single column with a bottom tab bar.
 
-## Homepage sections
+## Homepage
 
-About (photo, bio, interests, education) → 进展 Updates (`data/updates.yaml`, one line per item, first 6 shown) → Latest News → Recent Publications → Talks (`data/talks.yaml`, hidden while empty) → Contact.
+Profile (photo with animated contour halo, coordinates, local time) → lede + short bio → Updates (`data/updates.yaml`) → Research topics → Latest News → Recent Publications → Talks (`data/talks.yaml`, hidden while empty) → Contact.
+
+Headings use Newsreader (self-hosted, SIL OFL, `static/fonts/`); body text uses system fonts, so Chinese renders with PingFang / Microsoft YaHei.
 
 ## Edit profile content
 

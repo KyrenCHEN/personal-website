@@ -1,105 +1,65 @@
 {{ define "main" }}
 {{- $d := index hugo.Data site.Language.Name -}}
-{{- $s := hugo.Data.site -}}
 {{- $lang := site.Language.Name -}}
 {{- $news := where site.RegularPages "Section" "news" -}}
 {{- $pubs := hugo.Data.publications -}}
-{{- $talks := hugo.Data.talks -}}
-{{- $updates := hugo.Data.updates -}}
 
-<section class="hero">
-  <canvas class="hero__field" aria-hidden="true"></canvas>
-  <div class="wrap about">
-    <div class="profile">
-      <figure class="profile__photo"><img src="{{ $s.photo | relURL }}" alt="{{ $d.name }}" width="320" height="400"></figure>
-      <h1 class="profile__name">{{ $d.name }}</h1>
-      <p class="profile__alt">{{ $d.name_alt }}</p>
-      <p class="profile__pos">{{ $d.position }}</p>
-      <p class="profile__aff"><a href="{{ $d.affiliation_url }}" rel="noopener" target="_blank">{{ $d.affiliation }}</a></p>
-      <div class="profile__links">
-        <a class="btn btn--icon" href="mailto:{{ $s.email }}" title="{{ $s.email }}" aria-label="Email">{{ partial "icon.html" "mail" }}</a>
-        {{- with index $s.cv $lang }}<a class="btn btn--icon" href="{{ . | relURL }}" title="CV" aria-label="CV">{{ partial "icon.html" "cv" }}</a>{{ end }}
-        {{- range $s.links }}
-        <a class="btn btn--icon" href="{{ .url }}" title="{{ .name }}" aria-label="{{ .name }}" rel="noopener" target="_blank">{{ partial "icon.html" .icon }}</a>
-        {{- end }}
-      </div>
-    </div>
-    <div class="about__body">
-      <h2 class="about__h">{{ i18n "about" }}</h2>
-      <div class="prose">{{ $d.bio_short | .RenderString }}</div>
-      <div class="about__cols">
-        <div>
-          <h3 class="sub mono">{{ i18n "interests" }}</h3>
-          <ul class="ilist">
-            {{- range $d.interests }}<li><span class="ilist__ico">{{ partial "icon.html" .icon }}</span>{{ .title }}</li>{{ end }}
-          </ul>
-        </div>
-        <div>
-          <h3 class="sub mono">{{ i18n "education" }}</h3>
-          <ul class="edu">
-            {{- range $d.education }}
-            <li>{{ partial "icon.html" "scholar" }}<div><strong>{{ .title }}</strong>, {{ index (split .period " – ") 1 | default .period }}<span class="muted">{{ .org }}</span></div></li>
-            {{- end }}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="hero__readout mono wrap" aria-hidden="true">
-    <span>{{ printf "%.4f°N  %.4f°E" $s.coords.lat $s.coords.lon }}</span><span class="hero__clock">UTC+8</span>
-    <span>{{ len $pubs }} PUBS · {{ len $d.grants }} GRANTS · {{ len $updates }} UPDATES</span>
-  </div>
+<section class="intro reveal">
+  <div class="intro__id">{{ partial "idcard.html" . }}{{ partial "links.html" . }}</div>
+  <p class="lede">{{ $d.lede }}</p>
+  <div class="prose">{{ $d.bio_short | .RenderString }}</div>
+  <a class="textlink" href="{{ relLangURL "bio/" }}">{{ i18n "cv" }} <span aria-hidden="true">→</span></a>
 </section>
 
-{{- $n := 0 }}
-<div class="wrap home">
-  {{- with $updates }}{{ $n = add $n 1 }}
-  <section class="block">
-    {{ partial "sec-head.html" (dict "n" $n "title" (i18n "updates")) }}
-    <ol class="updates" data-collapsed="true">
-      {{- range $i, $u := . }}
-      {{- $txt := (index $u $lang) | default $u.zh | markdownify }}
-      <li{{ if ge $i 6 }} class="is-extra"{{ end }}>
-        <span class="updates__d mono">{{ $u.date }}</span>
-        <p>{{ with $u.url }}<a href="{{ if hasPrefix . "/" }}{{ relLangURL (strings.TrimPrefix "/" .) }}{{ else }}{{ . }}{{ end }}">{{ $txt }}</a>{{ else }}{{ $txt }}{{ end }}</p>
-      </li>
-      {{- end }}
-    </ol>
-    {{- if gt (len .) 6 }}
-    <button class="more-btn mono" type="button" data-target=".updates" data-more="{{ i18n "show_all" }} ({{ len . }})" data-less="{{ i18n "show_less" }}">{{ i18n "show_all" }} ({{ len . }})</button>
+{{- with hugo.Data.updates }}
+<section class="sec reveal">
+  {{ partial "sec.html" (dict "title" (i18n "updates") "id" "updates") }}
+  <ol class="updates" data-collapsed="true">
+    {{- range $i, $u := . }}
+    {{- $txt := (index $u $lang) | default $u.zh | markdownify }}
+    <li{{ if ge $i 5 }} class="is-extra"{{ end }}>
+      <time class="mono">{{ $u.date }}</time>
+      <p>{{ with $u.url }}<a href="{{ if hasPrefix . "/" }}{{ relLangURL (strings.TrimPrefix "/" .) }}{{ else }}{{ . }}{{ end }}">{{ $txt }}</a>{{ else }}{{ $txt }}{{ end }}</p>
+    </li>
     {{- end }}
-  </section>
+  </ol>
+  {{- if gt (len .) 5 }}
+  <button class="more" type="button" data-target=".updates" data-more="{{ i18n "show_all" }} · {{ len . }}" data-less="{{ i18n "show_less" }}">{{ i18n "show_all" }} · {{ len . }}</button>
   {{- end }}
+</section>
+{{- end }}
 
-  {{- with $news }}{{ $n = add $n 1 }}
-  <section class="block">
-    {{ partial "sec-head.html" (dict "n" $n "title" (i18n "latest_news") "more" (dict "url" (relLangURL "news/") "label" (i18n "all_news"))) }}
-    <div class="ngrid ngrid--3">{{ range first 3 . }}{{ partial "news-card.html" . }}{{ end }}</div>
-  </section>
-  {{- end }}
+<section class="sec reveal">
+  {{ partial "sec.html" (dict "title" (i18n "research") "id" "research") }}
+  <ul class="topics">
+    {{- range $d.interests }}
+    <li><span class="topics__ico">{{ partial "icon.html" .icon }}</span><div><h3>{{ .title }}</h3><p>{{ .text }}</p></div></li>
+    {{- end }}
+  </ul>
+</section>
 
-  {{- $n = add $n 1 }}
-  <section class="block">
-    {{ partial "sec-head.html" (dict "n" $n "title" (i18n "selected_pubs") "more" (dict "url" (relLangURL "publications/") "label" (i18n "all_pubs"))) }}
-    <ol class="pubs">{{ range first 5 $pubs }}{{ partial "pub.html" (dict "p" .) }}{{ end }}</ol>
-  </section>
+{{- with $news }}
+<section class="sec reveal">
+  {{ partial "sec.html" (dict "title" (i18n "latest_news") "more" (dict "url" (relLangURL "news/") "label" (i18n "all_news"))) }}
+  <div class="rail">{{ range first 4 . }}{{ partial "news-card.html" . }}{{ end }}</div>
+</section>
+{{- end }}
 
-  {{- with $talks }}{{ $n = add $n 1 }}
-  <section class="block">
-    {{ partial "sec-head.html" (dict "n" $n "title" (i18n "talks")) }}
-    {{ partial "talks.html" (first 5 .) }}
-  </section>
-  {{- end }}
+<section class="sec reveal">
+  {{ partial "sec.html" (dict "title" (i18n "selected_pubs") "id" "publications" "more" (dict "url" (relLangURL "publications/") "label" (printf "%s · %d" (i18n "all_pubs") (len $pubs)))) }}
+  <ol class="pubs">{{ range first 5 $pubs }}{{ partial "pub.html" (dict "p" .) }}{{ end }}</ol>
+</section>
 
-  {{- $n = add $n 1 }}
-  <section class="block">
-    {{ partial "sec-head.html" (dict "n" $n "title" (i18n "contact")) }}
-    <div class="cols">
-      <div>{{ partial "contact.html" . }}</div>
-      {{- with $d.recruit }}
-      <div class="callout"><h3 class="sub mono">{{ i18n "recruit" }}</h3><div class="prose small">{{ . | $.RenderString }}</div></div>
-      {{- end }}
-    </div>
-  </section>
-</div>
+{{- with hugo.Data.talks }}
+<section class="sec reveal">
+  {{ partial "sec.html" (dict "title" (i18n "talks")) }}
+  {{ partial "talks.html" (first 5 .) }}
+</section>
+{{- end }}
+
+<section class="sec reveal">
+  {{ partial "sec.html" (dict "title" (i18n "contact") "id" "contact") }}
+  {{ partial "contact.html" . }}
+  {{- with $d.recruit }}<div class="note"><h3>{{ i18n "recruit" }}</h3>{{ . | $.RenderString }}</div>{{ end }}
+</section>
 {{ end }}

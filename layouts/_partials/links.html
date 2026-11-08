@@ -1,0 +1,8 @@
+{{- $s := hugo.Data.site -}}
+<ul class="links">
+  <li><a href="mailto:{{ $s.email }}">{{ partial "icon.html" "mail" }}<span>Email</span></a></li>
+  {{- with index $s.cv site.Language.Name }}<li><a href="{{ . | relURL }}">{{ partial "icon.html" "cv" }}<span>CV</span></a></li>{{ end }}
+  {{- range $s.links }}
+  <li><a href="{{ .url }}" rel="noopener" target="_blank">{{ partial "icon.html" .icon }}<span>{{ .label | default .name }}</span></a></li>
+  {{- end }}
+</ul>

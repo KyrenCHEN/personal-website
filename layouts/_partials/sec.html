@@ -1,0 +1,5 @@
+{{- /* section header. ctx: dict "title" "id" "more" (dict url label) */ -}}
+<header class="sec__head">
+  <h2{{ with .id }} id="{{ . }}"{{ end }}>{{ .title }}</h2>
+  {{- with .more }}<a class="sec__more" href="{{ .url }}">{{ .label }}<span aria-hidden="true">→</span></a>{{ end }}
+</header>

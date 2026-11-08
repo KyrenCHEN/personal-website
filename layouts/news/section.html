@@ -1,16 +1,12 @@
 {{ define "main" }}
-{{ partial "page-head.html" . }}
-<div class="wrap page">
-  {{- $pag := .Paginate .RegularPages.ByDate.Reverse }}
-  <div class="ngrid ngrid--3">
-    {{- range $pag.Pages }}{{ partial "news-card.html" . }}{{ end }}
-  </div>
-  {{- if gt $pag.TotalPages 1 }}
-  <nav class="pager mono">
-    {{- with $pag.Prev }}<a href="{{ .URL }}">← {{ i18n "prev" }}</a>{{ end }}
-    <span>{{ $pag.PageNumber }} / {{ $pag.TotalPages }}</span>
-    {{- with $pag.Next }}<a href="{{ .URL }}">{{ i18n "next" }} →</a>{{ end }}
-  </nav>
-  {{- end }}
-</div>
+{{ partial "phead.html" . }}
+{{- $pag := .Paginate .RegularPages.ByDate.Reverse }}
+<div class="nlist reveal">{{ range $pag.Pages }}{{ partial "news-row.html" . }}{{ end }}</div>
+{{- if gt $pag.TotalPages 1 }}
+<nav class="pager mono">
+  {{- with $pag.Prev }}<a href="{{ .URL }}">← {{ i18n "prev" }}</a>{{ end }}
+  <span>{{ $pag.PageNumber }} / {{ $pag.TotalPages }}</span>
+  {{- with $pag.Next }}<a href="{{ .URL }}">{{ i18n "next" }} →</a>{{ end }}
+</nav>
+{{- end }}
 {{ end }}

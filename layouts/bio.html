@@ -1,27 +1,41 @@
 {{ define "main" }}
 {{- $d := index hugo.Data site.Language.Name -}}
-{{ partial "page-head.html" . }}
-<div class="wrap page">
-  <section class="block">
-    {{ partial "sec-head.html" (dict "n" 1 "title" (i18n "about")) }}
-    <div class="prose">{{ $d.bio | .RenderString }}</div>
-  </section>
-  <section class="block">
-    {{ partial "sec-head.html" (dict "n" 2 "title" (print (i18n "education") " / " (i18n "employment"))) }}
-    <div class="cols">
-      {{- range $k := slice "education" "employment" }}
-      <div>
-        <h3 class="sub mono">{{ i18n $k }}</h3>
-        <ol class="tl">
-          {{- range index $d $k }}<li><span class="tl__t mono">{{ .period }}</span><strong>{{ .title }}</strong><span class="muted">{{ .org }}</span></li>{{ end }}
-        </ol>
-      </div>
-      {{- end }}
-    </div>
-  </section>
-  <section class="block">
-    {{ partial "sec-head.html" (dict "n" 3 "title" (i18n "awards")) }}
-    {{ partial "awards.html" $d.awards }}
-  </section>
-</div>
+{{ partial "phead.html" . }}
+{{- range $k := slice "employment" "education" }}
+<section class="sec reveal">
+  {{ partial "sec.html" (dict "title" (i18n $k)) }}
+  <ol class="tl">
+    {{- range index $d $k }}<li><time class="mono">{{ .period }}</time><div><strong>{{ .title }}</strong><span>{{ .org }}</span></div></li>{{ end }}
+  </ol>
+</section>
+{{- end }}
+<section class="sec reveal">
+  {{ partial "sec.html" (dict "title" (i18n "grants")) }}
+  <ol class="tl">
+    {{- range $d.grants }}<li><time class="mono">{{ .period }}</time><div><strong>{{ .title }}</strong><span>{{ .funder }} · {{ .role }}</span></div></li>{{ end }}
+  </ol>
+</section>
+<section class="sec reveal">
+  {{ partial "sec.html" (dict "title" (i18n "awards")) }}
+  <ol class="tl">
+    {{- range $d.awards }}<li><time class="mono">{{ .year }}</time><div><strong>{{ .title }}</strong><span>{{ .org }}</span></div></li>{{ end }}
+  </ol>
+</section>
+{{- with hugo.Data.talks }}
+<section class="sec reveal">
+  {{ partial "sec.html" (dict "title" (i18n "talks")) }}
+  {{ partial "talks.html" . }}
+</section>
+{{- end }}
+{{- if or $d.courses $d.recruit }}
+<section class="sec reveal">
+  {{ partial "sec.html" (dict "title" (i18n "teaching")) }}
+  {{- with $d.courses }}<ul class="plain">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}
+  {{- with $d.recruit }}<div class="note"><h3>{{ i18n "recruit" }}</h3>{{ . | $.RenderString }}</div>{{ end }}
+</section>
+{{- end }}
+<section class="sec reveal">
+  {{ partial "sec.html" (dict "title" (i18n "bio")) }}
+  <div class="prose">{{ $d.bio | .RenderString }}</div>
+</section>
 {{ end }}

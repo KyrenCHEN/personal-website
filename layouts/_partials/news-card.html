@@ -2,23 +2,16 @@
 {{- $cat := .Params.category | default "event" -}}
 {{- $icons := dict "paper" "doc" "award" "award" "talk" "mic" "event" "calendar" "media" "image" "team" "users" -}}
 {{- $video := or (in .RawContent "{{< video") (in .RawContent "{{< bilibili") (in .RawContent "{{< youtube") -}}
-<article class="ncard">
-  <a class="ncard__media" href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">
+<a class="card" href="{{ .RelPermalink }}">
+  <span class="card__media">
     {{- if $cover }}
-      {{- if eq $cover.MediaType.SubType "svg" }}
-      <img src="{{ $cover.RelPermalink }}" alt="" loading="lazy">
-      {{- else }}
-      {{- $img := $cover.Fill "720x405 webp Smart" }}
-      <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="" loading="lazy">
-      {{- end }}
-    {{- else }}
-      <span class="ncard__ph">{{ partial "icon.html" (index $icons $cat) }}</span>
-    {{- end }}
-    {{- if $video }}<span class="ncard__play">{{ partial "icon.html" "play" }}</span>{{ end }}
-  </a>
-  <div class="ncard__body">
-    <p class="ncard__meta mono"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time><span class="tag tag--{{ $cat }}">{{ i18n (print "cat_" $cat) }}</span></p>
-    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-    <p class="ncard__sum">{{ .Summary | plainify | truncate 110 }}</p>
-  </div>
-</article>
+      {{- if eq $cover.MediaType.SubType "svg" }}<img src="{{ $cover.RelPermalink }}" alt="" loading="lazy">
+      {{- else }}{{ $img := $cover.Fill "640x400 webp Smart" }}<img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="" loading="lazy">{{ end }}
+    {{- else }}<span class="card__ph cat-{{ $cat }}">{{ partial "icon.html" (index $icons $cat) }}</span>{{ end }}
+    {{- if $video }}<span class="card__play">{{ partial "icon.html" "play" }}</span>{{ end }}
+  </span>
+  <span class="card__body">
+    <span class="card__meta mono"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01" }}</time> · {{ i18n (print "cat_" $cat) }}</span>
+    <span class="card__title">{{ .Title }}</span>
+  </span>
+</a>

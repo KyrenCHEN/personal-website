@@ -1,0 +1,5 @@
+{{- $d := index hugo.Data site.Language.Name -}}
+<footer class="foot">
+  <span>© {{ now.Year }} {{ $d.name }}</span>
+  <span class="mono">{{ i18n "updated" }} {{ now.Format "2006-01-02" }}</span>
+</footer>

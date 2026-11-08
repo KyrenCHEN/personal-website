@@ -1,25 +1,22 @@
 {{ define "main" }}
 {{- $cat := .Params.category | default "event" -}}
 <article class="post">
-  <header class="phead phead--post">
-    <canvas class="hero__field" aria-hidden="true"></canvas>
-    <div class="wrap wrap--narrow phead__inner">
-      <p class="mono phead__path"><a href="{{ .Parent.RelPermalink }}">{{ i18n "news" }}</a> / <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time> <span class="tag tag--{{ $cat }}">{{ i18n (print "cat_" $cat) }}</span></p>
-      <h1>{{ .Title }}</h1>
-    </div>
+  <header class="phead reveal">
+    <p class="phead__crumb mono"><a href="{{ .Parent.RelPermalink }}">{{ i18n "news" }}</a> / <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time> · {{ i18n (print "cat_" $cat) }}</p>
+    <h1>{{ .Title }}</h1>
   </header>
-  <div class="wrap wrap--narrow post__body prose">
+  <div class="prose post__body">
     {{- with .Resources.GetMatch "cover.*" }}{{ if not $.Params.hide_cover }}
-    <figure class="post__cover">
+    <figure class="media">
       {{- if eq .MediaType.SubType "svg" }}<img src="{{ .RelPermalink }}" alt="">
       {{- else }}{{ $img := .Resize "1440x webp" }}<img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="">{{ end }}
     </figure>
     {{- end }}{{ end }}
     {{ .Content }}
   </div>
-  <nav class="wrap wrap--narrow post__nav">
-    {{- with .NextInSection }}<a href="{{ .RelPermalink }}"><span class="mono muted">{{ partial "icon.html" "left" }} {{ i18n "prev" }}</span>{{ .Title }}</a>{{ else }}<span></span>{{ end }}
-    {{- with .PrevInSection }}<a class="r" href="{{ .RelPermalink }}"><span class="mono muted">{{ i18n "next" }} {{ partial "icon.html" "right" }}</span>{{ .Title }}</a>{{ end }}
+  <nav class="postnav">
+    {{- with .NextInSection }}<a href="{{ .RelPermalink }}"><span class="mono">← {{ i18n "prev" }}</span>{{ .Title }}</a>{{ else }}<span></span>{{ end }}
+    {{- with .PrevInSection }}<a class="r" href="{{ .RelPermalink }}"><span class="mono">{{ i18n "next" }} →</span>{{ .Title }}</a>{{ end }}
   </nav>
 </article>
 {{ end }}

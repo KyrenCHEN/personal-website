@@ -1,0 +1,21 @@
+{{- $p := . -}}
+{{- $d := index hugo.Data site.Language.Name -}}
+<aside class="side">
+  <div class="side__inner">
+    <a class="side__home" href="{{ site.Home.RelPermalink }}" aria-label="{{ $d.name }}">
+      {{ partial "idcard.html" . }}
+    </a>
+    {{ partial "links.html" . }}
+    <nav class="side__nav" aria-label="Main">
+      {{- range site.Menus.main }}
+      {{- $on := partial "menu-active.html" (dict "p" $p "m" .) }}
+      <a href="{{ .URL }}"{{ if $on }} class="is-active" aria-current="page"{{ end }}>{{ i18n (cond (eq .Identifier "home") "menu_home" .Identifier) }}</a>
+      {{- end }}
+    </nav>
+    {{ partial "lang.html" . }}
+  </div>
+</aside>
+<header class="mbar">
+  <a class="mbar__name" href="{{ site.Home.RelPermalink }}">{{ $d.name }}</a>
+  {{ partial "lang.html" . }}
+</header>

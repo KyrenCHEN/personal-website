@@ -1,9 +1,7 @@
 {{ define "main" }}
-<section class="notfound">
-  <div class="wrap">
-    <p class="mono muted">ERR 404 · NULL GEOMETRY</p>
-    <h1>{{ i18n "not_found" }}</h1>
-    <p><a href="{{ site.Home.RelPermalink }}">{{ i18n "go_home" }} →</a></p>
-  </div>
-</section>
+<header class="phead">
+  <p class="phead__crumb mono">404 · null geometry</p>
+  <h1>{{ i18n "not_found" }}</h1>
+  <p><a class="textlink" href="{{ site.Home.RelPermalink }}">{{ i18n "go_home" }} <span aria-hidden="true">→</span></a></p>
+</header>
 {{ end }}

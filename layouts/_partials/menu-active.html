@@ -1,0 +1,8 @@
+{{- /* ctx: dict "p" page "m" menuEntry */ -}}
+{{- $p := .p -}}{{- $m := .m -}}
+{{- $on := false -}}
+{{- if $m.Page }}
+  {{- if eq $m.Page $p }}{{ $on = true }}
+  {{- else if and (not $m.Page.IsHome) (eq $m.Page.Kind "section") (eq $p.Section $m.Page.Section) }}{{ $on = true }}{{ end }}
+{{- end }}
+{{- return $on -}}
