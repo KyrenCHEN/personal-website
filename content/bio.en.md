@@ -1,0 +1,4 @@
+---
+title: Biography
+layout: bio
+---

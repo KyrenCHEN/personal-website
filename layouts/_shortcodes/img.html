@@ -1,0 +1,8 @@
+{{- /* {{< img src="photo.jpg" caption="..." >}} — responsive image from the page bundle, click to enlarge */ -}}
+{{- with .Page.Resources.Get (.Get "src") }}
+{{- $m := .Resize "1440x webp" }}{{ $f := .Fit "2000x2000 webp" }}
+<figure class="media">
+  <a href="{{ $f.RelPermalink }}" data-lightbox><img src="{{ $m.RelPermalink }}" width="{{ $m.Width }}" height="{{ $m.Height }}" alt="{{ $.Get "alt" | default ($.Get "caption") | plainify }}" loading="lazy"></a>
+  {{- with $.Get "caption" }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>
+{{- else }}{{ errorf "img: %q not found in %s" (.Get "src") .Page.File.Path }}{{ end }}

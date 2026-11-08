@@ -1,25 +1,154 @@
-# Shared by both language versions. Newest first.
-# flags: corresponding | equal ; tags: free text shown as badges (e.g. "ESI Highly Cited")
+# Journal articles, newest first. Mark corresponding authors with "*".
+# Optional fields: doi (e.g. 10.1080/13658816.2025.xxxxxxx), url, note.
 - year: 2025
-  authors: "A. Author, Y. Name*, B. Author"
-  title: "Placeholder: Satellite-derived heat exposure and cardiovascular mortality across Chinese megacities"
-  venue: "Environmental Health Perspectives"
-  doi: 10.0000/placeholder.2025.001
-  flags: [corresponding]
+  authors: "Chen, P.*, Gong, M., & Li, S."
+  title: "The cost-balanced accessibility (CBA) model: a new framework for measuring urban accessibility with multi-objective considerations"
+  venue: International Journal of Geographical Information Science
+  details: "1–24"
+- year: 2025
+  authors: "Ma, Y., Chen, P.*, Gong, M., Cai, Y., & Jian, I. Y."
+  title: "The First Seasonal Green View Index Mapping Dataset across Chinese cities powered by deep learning"
+  venue: Scientific Data
+  details: "12(1), 1356"
+- year: 2025
+  authors: "Ma, Y., Chen, P.*, Qin, Y., Yang, Z., & Li, S."
+  title: "From Sky to Ground: Monitoring Visible Street Greenery via Multisource Remote Sensing Imagery with Deep Learning"
+  venue: Urban Forestry & Urban Greening
+  details: "128866"
+- year: 2025
+  authors: "Qin, Y., Ma, Y., Gong, M., Li, S., & Chen, P.*"
+  title: "Investigating the Serviceability of Urban Green Spaces from a Spatial Perspective: A Comparative Study Across 368 Cities on the Chinese Mainland"
+  venue: Land
+  details: "14(4), 711"
+- year: 2025
+  authors: "Jian, I. Y., Yao, T. Y., Mo, K. H., Chen, P., Chen, W., & Yu, Y."
+  title: "Inclusive beyond the swings and slides: Exploring access and equity in Hong Kong's playground"
+  venue: Habitat International
+  details: "156, 103276"
 - year: 2024
-  authors: "Y. Name, C. Author, D. Author"
-  title: "Placeholder: A multi-sensor deep learning framework for fine-scale PM2.5 mapping"
-  venue: "Remote Sensing of Environment"
-  doi: 10.0000/placeholder.2024.002
-  tags: ["ESI Highly Cited"]
+  authors: "Jian, I. Y., Mo, K. H., Chen, P.*, Ye, W., Siu, K. W. M., & Chan, E. H."
+  title: "Navigating between private and public: Understanding publicness of public open spaces in private developments in Hong Kong"
+  venue: Journal of Urban Management
+  details: "13(4), 787–799"
 - year: 2024
-  authors: "E. Author, Y. Name, F. Author"
-  title: "Placeholder: Quantifying urban vitality with nighttime light and mobile-phone data"
-  venue: "Landscape and Urban Planning"
-  doi: 10.0000/placeholder.2024.003
+  authors: "Chen, P., Chen, R., Cheng, X., Yang, K., & Chen, Z."
+  title: "GrIS-MDM: A Hydrology Knowledge-Based Framework Combining Deep Learning Network for Moulin Detection Using Ultrahigh-Resolution UAV Imagery"
+  venue: IEEE Transactions on Geoscience and Remote Sensing
+- year: 2024
+  authors: "Li, S., Chen, P.*, Hui, F., & Gong, M."
+  title: "Evaluating urban vitality and resilience under the influence of the COVID-19 pandemic from a mobility perspective: A case study in Shenzhen, China"
+  venue: Journal of Transport Geography
+  details: "117, 103886"
+- year: 2024
+  authors: "Chen, P., Jian, I. Y., Zhang, L., Siu, K. W. M., Liu, J., Liu, Z., & Chen, X."
+  title: "Towards a smart healthy city: A generalised flow-based 2SFCA method for incorporating actual mobility data in healthcare accessibility evaluation"
+  venue: Travel Behaviour and Society
+  details: "34"
+- year: 2024
+  authors: "Liu, J., Wang, M., Chen, P.*, Wen, C., Yu, Y., & Chau, K. W."
+  title: "Riding Towards a Sustainable Future: An Evaluation of Bike Sharing's Environmental Benefits in Xiamen Island, China"
+  venue: Geography and Sustainability
 - year: 2023
-  authors: "Y. Name, G. Author"
-  title: "Placeholder: Climate-driven shifts in urban green space cooling efficiency"
-  venue: "Nature Communications"
-  doi: 10.0000/placeholder.2023.004
-  flags: [equal]
+  authors: "Liu, J., Yu, Y., Chen, P., Chen, B. Y., Chen, L., & Chen, R."
+  title: "Facilitating urban tourism governance with crowdsourced big data: A framework based on Shenzhen and Jiangmen, China"
+  venue: International Journal of Applied Earth Observation and Geoinformation
+  details: "124, 103509"
+- year: 2023
+  authors: "Chen, P., Huang, H., Shi, W., & Chen, R."
+  title: "A Reference-Free Method for the Thematic Accuracy Estimation of Global Land Cover Products Based on the Triple Collocation Approach"
+  venue: Remote Sensing
+  details: "15(9), 2255"
+- year: 2023
+  authors: "Wang, S., Sun, Q., Chen, P.*, Qiu, H., & Chen, Y."
+  title: "Location Scheme of Routine Nucleic Acid Testing Sites Based on Location-Allocation Models: A Case Study of Shenzhen City"
+  venue: ISPRS International Journal of Geo-Information
+  details: "12(4), 152"
+- year: 2022
+  authors: "Chen, P., Zhang, D., Liu, J.*, & Jian, I. Y."
+  title: "Assessing personal exposure to COVID-19 transmission in public indoor spaces based on fine-grained trajectory data: A simulation study"
+  venue: Building and Environment
+  details: "109153"
+- year: 2022
+  authors: "Chen, P., Huang, H., & Shi, W.*"
+  title: "Reference-free method for investigating classification uncertainty in large-scale land cover datasets"
+  venue: International Journal of Applied Earth Observation and Geoinformation
+  details: "107, 102673"
+- year: 2022
+  authors: "Zhang, L., Chen, P.*, & Hui, F."
+  title: "Refining the accessibility evaluation of urban green spaces with multiple sources of mobility data: A case study in Shenzhen, China"
+  venue: Urban Forestry & Urban Greening
+  details: "70, 127550"
+- year: 2022
+  authors: "Liu, Z., Shi, W.*, Yu, Y., Chen, P., & Chen, B. Y."
+  title: "A LSTM-based approach for modelling the movement uncertainty of indoor trajectories with mobile sensing data"
+  venue: International Journal of Applied Earth Observation and Geoinformation
+  details: "108, 102758"
+- year: 2022
+  authors: "Shen, X., Shi, W.*, Chen, P., Liu, Z., & Wang, L."
+  title: "Novel model for predicting individuals' movements in dynamic regions of interest"
+  venue: GIScience & Remote Sensing
+  details: "1–22"
+- year: 2021
+  authors: "Shi, W., Chen, P.*, Shen, X., & Liu, J."
+  title: "An adaptive approach for modelling the movement uncertainty in trajectory data based on the concept of error ellipses"
+  venue: International Journal of Geographical Information Science
+  details: "35(6), 1131–1154"
+- year: 2021
+  authors: "Chen, P.*, Fu, X., & Wang, X."
+  title: "A Graph Convolutional Stacked Bidirectional Unidirectional-LSTM Neural Network for Metro Ridership Prediction"
+  venue: IEEE Transactions on Intelligent Transportation Systems
+- year: 2021
+  authors: "Shi, W., Liu, Z.*, An, Z., & Chen, P."
+  title: "RegNet: a neural network model for predicting regional desirability with VGI data"
+  venue: International Journal of Geographical Information Science
+  details: "35(1), 175–192"
+- year: 2020
+  authors: "Liu, J., Shi, W.*, & Chen, P."
+  title: "Exploring travel patterns during the holiday season—A case study of Shenzhen Metro system during the Chinese Spring festival"
+  venue: ISPRS International Journal of Geo-Information
+  details: "9(11), 651"
+- year: 2020
+  authors: "Chen, S., Shi, W., Zhou, M.*, Zhang, M., & Chen, P."
+  title: "Automatic Building Extraction via Adaptive Iterative Segmentation with LiDAR Data and High Spatial Resolution Imagery Fusion"
+  venue: IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing
+  details: "13, 2081–2095"
+- year: 2019
+  authors: "Chen, P., Shi, W.*, Zhou, X., Liu, Z., & Fu, X."
+  title: "STLP-GSM: a method to predict future locations of individuals based on geotagged social media data"
+  venue: International Journal of Geographical Information Science
+  details: "33(12), 2337–2362"
+- year: 2019
+  authors: "Chen, P., Shi, W.*, & Kou, R."
+  title: "Reference-Free Measurement of the Classification Reliability of Vector-Based Land Cover Mapping"
+  venue: IEEE Geoscience and Remote Sensing Letters
+  details: "16(7), 1090–1094"
+- year: 2019
+  authors: "Wan, Y., Deng, C.*, Wu, T.*, Jin, R., Chen, P., & Kou, R."
+  title: "Quantifying the Spatial Integration Patterns of Urban Agglomerations along an Inter-City Gradient"
+  venue: Sustainability
+  details: "11(18), 5000"
+- year: 2019
+  authors: "Fang, B., Kou, R.*, Pan, L., & Chen, P."
+  title: "Category-Sensitive Domain Adaptation for Land Cover Mapping in Aerial Scenes"
+  venue: Remote Sensing
+  details: "11(22), 2631"
+- year: 2018
+  authors: "Chen, P., Shi, W.*, Kou, R., & Wan, Y."
+  title: "A quantitative investigation of the uncertainty associated with mapping scale in the production of land-cover/land-use data"
+  venue: International Journal of Remote Sensing
+  details: "39(23), 8798–8817"
+- year: 2018
+  authors: "Chen, P., & Shi, W.*"
+  title: "Measuring the Spatial Relationship Information of Multi-Layered Vector Data"
+  venue: ISPRS International Journal of Geo-Information
+  details: "7(3), 88"
+- year: 2017
+  authors: "Shi, W.*, Chen, P., & Zhang, X."
+  title: "Reliability Analysis in Geographical Conditions Monitoring"
+  venue: Acta Geodaetica et Cartographica Sinica
+  details: "46(10), 1620–1626"
+- year: 2015
+  authors: "Wan, Y., Shi, W.*, Gao, L., Chen, P., & Hua, Y."
+  title: "A general framework for spatial data inspection and assessment"
+  venue: Earth Science Informatics
+  details: "8(4), 919–935"

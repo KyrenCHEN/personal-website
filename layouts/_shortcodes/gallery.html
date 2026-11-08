@@ -1,0 +1,11 @@
+{{- /* {{< gallery match="gallery/*" caption="..." >}} — all images in the page bundle matching the glob */ -}}
+{{- $imgs := where (.Page.Resources.Match (.Get "match" | default "gallery/*")) "ResourceType" "image" -}}
+<figure class="media">
+  <div class="gallery">
+    {{- range $imgs }}
+    {{- $t := .Fill "600x450 webp Smart" }}{{ $f := .Fit "1800x1800 webp" }}
+    <a href="{{ $f.RelPermalink }}" data-lightbox><img src="{{ $t.RelPermalink }}" width="{{ $t.Width }}" height="{{ $t.Height }}" alt="{{ .Title }}" loading="lazy"></a>
+    {{- end }}
+  </div>
+  {{- with .Get "caption" }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>

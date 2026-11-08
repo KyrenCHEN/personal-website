@@ -1,86 +1,124 @@
-name: Your Name
-position: Associate Professor · Doctoral Supervisor
-affiliation: School of Geospatial Engineering and Science, Sun Yat-sen University
+name: Pengfei CHEN
+name_alt: 陈鹏飞
+position: Associate Professor
+affiliation: School of Remote Sensing Science and Technology, Sun Yat-sen University   # verify official English name
 affiliation_url: https://sges.sysu.edu.cn/
-keywords: [GIScience, Remote Sensing, Environmental Health, Urban Climate]
-description: Personal academic homepage — GIScience, remote sensing, environmental health and urban climate.
+keywords: [Urban GIS, Environmental Health & Exposure, Spatiotemporal Data Modeling]
+description: Pengfei Chen, Associate Professor at Sun Yat-sen University. Research in urban GIS, environmental health and exposure, and spatiotemporal data modeling.
 
-about: |
-  I am an Associate Professor at the School of Geospatial Engineering and Science, Sun Yat-sen University.
-  My research couples **Earth observation**, **spatial data science** and **epidemiological modeling** to
-  quantify how environmental exposures in cities — heat, air pollution and green space — shape human health
-  under a changing climate.
+bio_short: |
+  Pengfei Chen is an Associate Professor at the School of Remote Sensing Science and Technology, Sun Yat-sen University.
+  He received his Ph.D. from Wuhan University and a joint Ph.D. from The Hong Kong Polytechnic University.
+  His research focuses on **urban GIS**, **environmental health and exposure**, and **spatiotemporal data modeling and analysis**,
+  with more than 30 journal articles in *IJGIS*, *IEEE TGRS*, *IEEE T-ITS*, *Scientific Data* and other venues.
+bio: |
+  Pengfei Chen is an Associate Professor at the School of Remote Sensing Science and Technology, Sun Yat-sen University (SYSU).
+  He received his B.Eng. (2012, with a minor B.Econ.), M.Sc. (2015) and Ph.D. (2019) from the School of Remote Sensing and Information
+  Engineering, Wuhan University, and a Ph.D. (2020, joint program) from the Department of Land Surveying and Geo-Informatics,
+  The Hong Kong Polytechnic University. He joined SYSU as an Assistant Professor in 2020 and has been an Associate Professor since 2023.
 
-  *Placeholder text — replace with your own biography.*
+  His research spans urban GIS, environmental health and exposure, and spatiotemporal data modeling and analysis — including urban
+  green-space serviceability and accessibility, urban vitality and human mobility, and reference-free accuracy assessment of global
+  land cover products. He leads projects funded by the National Natural Science Foundation of China and the Guangdong Natural Science
+  Foundation, and has published more than 30 articles in journals such as *International Journal of Geographical Information Science*,
+  *IEEE Transactions on Geoscience and Remote Sensing*, *IEEE Transactions on Intelligent Transportation Systems* and *Scientific Data*.
+  His honors include the Smart City Technology Innovation Award (Bronze Medal) from the International Society for Urban Informatics,
+  First Prize in the SYSU Teaching Competition, and the Special Prize of the Surveying and Mapping Science and Technology Progress Award.
 
-research:
-  - icon: satellite
-    title: Remote Sensing of Urban Environments
-    text: Multi-sensor retrieval of land surface temperature, aerosols and land cover at fine spatiotemporal resolution.
-  - icon: pulse
-    title: Environmental Health & Exposure Science
-    text: Spatiotemporal exposure assessment linking heat and air pollution to mortality and morbidity.
-  - icon: globe
-    title: Global Climate Change
-    text: Climate-driven shifts in urban heat risk, adaptation capacity and nature-based solutions.
+interests:
   - icon: grid
-    title: Urban Vitality & GeoAI
-    text: Deep learning on imagery, mobility and street-view data to characterize human activity in cities.
+    title: Urban GIS
+    text: Serviceability and accessibility of urban green space, urban vitality and resilience, and street-level greenery mapping.
+  - icon: pulse
+    title: Environmental Health & Exposure
+    text: Exposure assessment integrating remote sensing and GIS, including urban eye-health risk, indoor transmission exposure and healthcare accessibility.
+  - icon: route
+    title: Spatiotemporal Data Modeling
+    text: Trajectory uncertainty, individual location prediction and metro ridership forecasting with spatiotemporal deep learning.
+  - icon: satellite
+    title: Land Cover Data Quality
+    text: Reference-free accuracy estimation and classification uncertainty of global land cover products.
 
 education:
-  - period: 2016 – 2021
-    title: Ph.D., Cartography and Geographic Information Systems
-    org: University Name
-  - period: 2019 – 2020
-    title: Visiting Ph.D. Student
-    org: University Name
-  - period: 2012 – 2016
-    title: B.Sc., Remote Sensing Science and Technology
-    org: University Name
+  - period: 2015.09 – 2020.09
+    title: Ph.D. (Joint Program)
+    org: Department of Land Surveying and Geo-Informatics, The Hong Kong Polytechnic University
+  - period: 2015.09 – 2019.12
+    title: Ph.D. in Engineering
+    org: School of Remote Sensing and Information Engineering, Wuhan University
+  - period: 2012.09 – 2015.07
+    title: M.Sc.
+    org: School of Remote Sensing and Information Engineering, Wuhan University
+  - period: 2008.09 – 2012.07
+    title: B.Eng.
+    org: School of Remote Sensing and Information Engineering, Wuhan University
+  - period: 2008.09 – 2012.07
+    title: B.Econ. (Minor)
+    org: WTO School, Wuhan University
 
 employment:
-  - period: 2024 – present
+  - period: 2023.06 – present
     title: Associate Professor
-    org: School of Geospatial Engineering and Science, Sun Yat-sen University
-  - period: 2021 – 2024
-    title: Postdoctoral Fellow
-    org: University Name
+    org: Sun Yat-sen University
+  - period: 2020.06 – 2023.06
+    title: Assistant Professor
+    org: Sun Yat-sen University
+  - period: 2015.02 – 2015.05
+    title: Research Assistant
+    org: The Hong Kong Polytechnic University
 
-projects:
-  - period: 2025 – 2028
-    title: "Placeholder: Fine-scale heat exposure modeling and health risk assessment in megacities"
-    funder: National Natural Science Foundation of China (General Program)
+grants:
+  - period: 2026.01 – 2026.12
+    title: Environmental exposure assessment and intervention mechanisms for urban eye health integrating remote sensing and GIS
+    funder: SYSU Medicine–Engineering Integration Seed Fund
     role: PI
-  - period: 2023 – 2025
-    title: "Placeholder: Multi-source remote sensing of urban air quality"
+  - period: 2025.09 – 2028.07
+    title: Multi-city eye-health environmental risk indicators and street-view visualization mapping
+    funder: Technical service project
+    role: PI
+  - period: 2024.04 – 2024.12
+    title: Key technologies for multi-granularity delineation of residential units based on urban big data
+    funder: Technical service project
+    role: PI
+  - period: 2023.01 – 2025.12
+    title: "Evaluating the service capacity of urban green spaces and its spatiotemporal change based on power-law characteristics of human activity: A case study of Shenzhen"
+    funder: Guangdong Natural Science Foundation (General Program)
+    role: PI
+  - period: 2022.01 – 2024.12
+    title: Reference-free accuracy estimation methods for global land cover classification data
     funder: National Natural Science Foundation of China (Young Scientists Fund)
     role: PI
-  - period: 2022 – 2026
-    title: "Placeholder: Climate change and urban health resilience"
-    funder: National Key R&D Program of China (Subproject)
-    role: Co-PI
 
 awards:
-  - year: 2024
-    text: "Placeholder: Young Talent Program"
-  - year: 2022
-    text: "Placeholder: Outstanding Doctoral Dissertation Award"
+  - year: 2025
+    title: 13th SYSU Teaching Competition
+    org: Sun Yat-sen University, First Prize (Teaching Innovation Track)
+    teaching: true
+  - year: 2025
+    title: Smart City Technology Innovation Award
+    org: The International Society for Urban Informatics, Bronze Medal
+  - year: 2023
+    title: Smart City Research and Innovation Scheme (SCRIS)
+    org: The International Society for Urban Informatics, First Prize
+  - year: 2021
+    title: 10th SYSU Teaching Achievement Award
+    org: Sun Yat-sen University, Second Prize
+    teaching: true
+  - year: 2018
+    title: Wang Zhizhuo Innovation Talent Scholarship
+    org: Wuhan University
+  - year: 2017
+    title: Surveying and Mapping Science and Technology Progress Award
+    org: Chinese Society for Geodesy, Photogrammetry and Cartography, Special Prize (14/26)
 
-service:
-  - "Associate Editor, *Journal Name*"
-  - "Reviewer for *Remote Sensing of Environment*, *Environment International*, *Nature Communications*"
-  - "Member, International Society for Environmental Epidemiology (ISEE)"
-
-courses:
-  - Principles of Remote Sensing (Undergraduate)
-  - Spatial Statistics and Geographic Data Science (Graduate)
+courses: []   # e.g. - Principles of GIS (Undergraduate)
 
 recruit: |
-  I am looking for **Ph.D. / M.Sc. students**, **postdocs** and **research assistants** with backgrounds in
-  GIS, remote sensing, environmental science, public health or computer science. Please email your CV and a
-  short statement of research interests.
+  The group welcomes **Ph.D. / M.Sc. students** and **undergraduate research assistants** with backgrounds in GIScience, remote sensing,
+  geomatics, urban planning, public health or computer science to work on urban GIS, environmental health and exposure, and
+  spatiotemporal data modeling. Please send your CV and transcripts by email.
 
 contact:
-  office: Room XXX, Haiqin Building X, Zhuhai Campus
-  address: Sun Yat-sen University, Zhuhai, Guangdong 519082, China
-  phone: ""
+  office: Room E316, Hanlin Building 3, Zhuhai Campus
+  address: Sun Yat-sen University, Tangjiawan, Zhuhai, Guangdong, China
+  postcode: "519082"

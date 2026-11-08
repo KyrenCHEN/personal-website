@@ -1,0 +1,31 @@
+{{ define "main" }}
+{{- $d := index hugo.Data site.Language.Name -}}
+{{ partial "page-head.html" . }}
+<div class="wrap page">
+  {{- $i := 0 }}
+  {{- with $d.recruit }}{{ $i = add $i 1 }}
+  <section class="block">
+    {{ partial "sec-head.html" (dict "n" $i "title" (i18n "recruit")) }}
+    <div class="callout prose">{{ . | $.RenderString }}</div>
+  </section>
+  {{- end }}
+  {{- with $d.courses }}{{ $i = add $i 1 }}
+  <section class="block">
+    {{ partial "sec-head.html" (dict "n" $i "title" (i18n "courses")) }}
+    <ul class="list">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+  </section>
+  {{- end }}
+  {{- with where $d.awards "teaching" true }}{{ $i = add $i 1 }}
+  <section class="block">
+    {{ partial "sec-head.html" (dict "n" $i "title" (i18n "teaching_awards")) }}
+    {{ partial "awards.html" . }}
+  </section>
+  {{- end }}
+  {{- with .Content }}<section class="block prose">{{ . }}</section>{{ end }}
+  {{- $i = add $i 1 }}
+  <section class="block">
+    {{ partial "sec-head.html" (dict "n" $i "title" (i18n "contact")) }}
+    {{ partial "contact.html" . }}
+  </section>
+</div>
+{{ end }}

@@ -1,0 +1,31 @@
+{{ define "main" }}
+{{- $d := index hugo.Data site.Language.Name -}}
+{{ partial "page-head.html" . }}
+<div class="wrap page">
+  <section class="block">
+    {{ partial "sec-head.html" (dict "n" 1 "title" (i18n "interests")) }}
+    <ol class="cards">
+      {{- range $j, $r := $d.interests }}
+      <li class="card">
+        <div class="card__top"><span class="card__ico">{{ partial "icon.html" $r.icon }}</span><span class="mono card__n">R{{ add $j 1 }}</span></div>
+        <h3>{{ $r.title }}</h3>
+        <p>{{ $r.text }}</p>
+      </li>
+      {{- end }}
+    </ol>
+    {{- with .Content }}<div class="prose block-gap">{{ . }}</div>{{ end }}
+  </section>
+  <section class="block">
+    {{ partial "sec-head.html" (dict "n" 2 "title" (i18n "grants")) }}
+    <ul class="rows">
+      {{- range $d.grants }}
+      <li class="row">
+        <span class="row__t mono">{{ .period }}</span>
+        <div><strong>{{ .title }}</strong><span class="muted">{{ .funder }}</span></div>
+        <span class="badge">{{ .role }}</span>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+</div>
+{{ end }}

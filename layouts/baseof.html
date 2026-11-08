@@ -1,20 +1,25 @@
 {{- $d := index hugo.Data site.Language.Name -}}
+{{- $desc := cond .IsHome $d.description (.Summary | plainify | default $d.description) -}}
 <!doctype html>
 <html lang="{{ site.Language.Locale }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
-  <meta name="description" content="{{ $d.description }}">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ $d.name }}{{ end }}</title>
+  <meta name="description" content="{{ $desc | truncate 160 }}">
   <meta name="theme-color" content="#ffffff">
-  <meta property="og:title" content="{{ site.Title }}">
-  <meta property="og:description" content="{{ $d.description }}">
-  <meta property="og:type" content="profile">
+  <meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:description" content="{{ $desc | truncate 160 }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
   <meta property="og:url" content="{{ .Permalink }}">
+  {{- with .Resources.GetMatch "cover.*" }}<meta property="og:image" content="{{ .Permalink }}">{{ end }}
   <link rel="canonical" href="{{ .Permalink }}">
   {{- range .AllTranslations }}
   <link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
   {{- end }}
+  {{- with site.GetPage "/news" }}{{ with .OutputFormats.Get "rss" }}
+  <link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}">
+  {{- end }}{{ end }}
   <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
   {{- $css := resources.Get "css/main.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">

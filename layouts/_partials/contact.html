@@ -1,0 +1,8 @@
+{{- $d := index hugo.Data site.Language.Name -}}
+{{- $s := hugo.Data.site -}}
+<dl class="clist">
+  <div><dt>{{ partial "icon.html" "mail" }}<span class="mono">{{ i18n "email" }}</span></dt><dd><a href="mailto:{{ $s.email }}">{{ $s.email }}</a></dd></div>
+  {{- with $s.phone }}<div><dt>{{ partial "icon.html" "phone" }}<span class="mono">{{ i18n "phone" }}</span></dt><dd>{{ . }}</dd></div>{{ end }}
+  {{- with $d.contact.office }}<div><dt>{{ partial "icon.html" "building" }}<span class="mono">{{ i18n "office" }}</span></dt><dd>{{ . }}</dd></div>{{ end }}
+  {{- with $d.contact.address }}<div><dt>{{ partial "icon.html" "pin" }}<span class="mono">{{ i18n "address" }}</span></dt><dd>{{ . }}{{ with $d.contact.postcode }} {{ . }}{{ end }}</dd></div>{{ end }}
+</dl>

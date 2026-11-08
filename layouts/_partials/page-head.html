@@ -1,0 +1,8 @@
+<section class="phead">
+  <canvas class="hero__field" aria-hidden="true"></canvas>
+  <div class="wrap phead__inner">
+    <p class="mono phead__path">~{{ .RelPermalink }}</p>
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.subtitle }}<p class="phead__sub">{{ . }}</p>{{ end }}
+  </div>
+</section>

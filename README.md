@@ -1,19 +1,55 @@
-# Personal Academic Homepage
+# Pengfei Chen · Academic Homepage
 
-Bilingual (English / 中文) single-page academic profile built with [Hugo](https://gohugo.io) and deployed on [Netlify](https://www.netlify.com). No theme or external dependency; all templates live in `layouts/`.
+Bilingual (English / 中文) faculty website built with [Hugo](https://gohugo.io) (≥ 0.156) and deployed on [Netlify](https://www.netlify.com). Self-contained: all templates live in `layouts/`, no external theme.
 
-## Edit content
+Pages: Home (bio + latest news + recent papers) · Biography · Research · Publications · News · Teaching & Students.
+
+## Edit profile content
 
 | File | Contents |
 |---|---|
-| `data/en.yaml`, `data/zh.yaml` | Name, position, bio, research, education, grants, honors, teaching, contact |
-| `data/publications.yaml` | Publications (shared by both languages) |
-| `data/site.yaml` | Email, photo, CV paths, academic profile links, author-name highlighting, hero coordinates |
-| `hugo.toml` | Site URL and per-language page titles |
-| `static/images/` | Portrait (replace `avatar.svg`, or add `avatar.jpg` and update `data/site.yaml`) |
-| `static/uploads/` | CV PDFs (`cv_en.pdf`, `cv_zh.pdf`) |
+| `data/zh.yaml`, `data/en.yaml` | Name, bio, research interests, education, appointments, grants, awards, courses, recruitment, office address |
+| `data/publications.yaml` | Journal articles (shared by both languages; `*` marks corresponding author; optional `doi`) |
+| `data/site.yaml` | Email, phone, photo, CV, academic profile links (Google Scholar / ORCID …) |
+| `static/images/` | Portrait — add `avatar.jpg` (4:5) and update `photo` in `data/site.yaml` |
 
-A section disappears automatically when its data field is empty.
+## Post news (动态)
+
+Each post is a folder under `content/news/`:
+
+```
+content/news/2026-03-new-paper/
+├── index.zh.md        # Chinese text
+├── index.en.md        # English text (optional; omit for a Chinese-only post)
+├── cover.jpg          # optional card thumbnail
+├── talk.mp4           # optional video
+└── gallery/           # optional photo album
+    ├── 01.jpg
+    └── 02.jpg
+```
+
+Front matter:
+
+```yaml
+---
+title: 论文发表于 Remote Sensing of Environment
+date: 2026-03-15
+category: paper      # paper | award | talk | event | media | team
+---
+```
+
+Media shortcodes inside the text:
+
+| Purpose | Syntax |
+|---|---|
+| Image (click to enlarge) | `{{< img src="photo.jpg" caption="..." >}}` |
+| Local video | `{{< video src="talk.mp4" poster="cover.jpg" caption="..." >}}` |
+| Bilibili | `{{< bilibili id="BV1xx411c7mD" >}}` |
+| YouTube | `{{< youtube VIDEO_ID >}}` |
+| Photo album | `{{< gallery >}}` (all images in `gallery/`) |
+
+Images are resized and converted to WebP automatically. Keep local videos under ~20 MB; host longer ones on Bilibili.
+`content/news/sample-media-post/` demonstrates every format — delete it when no longer needed.
 
 ## Local preview
 
@@ -24,6 +60,6 @@ hugo server           # http://localhost:1313  (Chinese: /zh/)
 
 ## Deploy (Netlify)
 
-1. Netlify → *Add new site* → *Import an existing project* → select this GitHub repository.
-2. Build settings are read from `netlify.toml`; no manual configuration needed.
+1. Netlify → *Add new site* → *Import an existing project* → select this repository.
+2. Build settings are read from `netlify.toml`.
 3. Set `baseURL` in `hugo.toml` to the final domain.

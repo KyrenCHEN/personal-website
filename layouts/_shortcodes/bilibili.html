@@ -1,0 +1,7 @@
+{{- /* {{< bilibili id="BV1xx411c7mD" caption="..." >}} */ -}}
+<figure class="media">
+  <div class="embed">
+    <iframe src="https://player.bilibili.com/player.html?bvid={{ .Get "id" }}&page={{ .Get "page" | default 1 }}&autoplay=0&high_quality=1" title="{{ .Get "caption" | default "Bilibili video" }}" loading="lazy" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-presentation"></iframe>
+  </div>
+  {{- with .Get "caption" }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>

@@ -1,24 +1,62 @@
 baseURL = "https://your-site.netlify.app/"
-title = "Your Name"
+title = "Pengfei Chen"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
-disableKinds = ["taxonomy", "term", "section", "rss"]
+disableKinds = ["taxonomy", "term"]
 
 [languages.en]
   label = "EN"
   locale = "en-US"
   weight = 1
-  title = "Your Name · Sun Yat-sen University"
+  title = "Pengfei Chen · Sun Yat-sen University"
 
 [languages.zh]
   label = "中文"
   locale = "zh-CN"
   weight = 2
-  title = "姓名 · 中山大学"
+  title = "陈鹏飞 · 中山大学"
+
+[menus]
+  [[menus.main]]
+    identifier = "home"
+    pageRef = "/"
+    weight = 1
+  [[menus.main]]
+    identifier = "bio"
+    pageRef = "/bio"
+    weight = 2
+  [[menus.main]]
+    identifier = "research"
+    pageRef = "/research"
+    weight = 3
+  [[menus.main]]
+    identifier = "publications"
+    pageRef = "/publications"
+    weight = 4
+  [[menus.main]]
+    identifier = "news"
+    pageRef = "/news"
+    weight = 5
+  [[menus.main]]
+    identifier = "teaching"
+    pageRef = "/teaching"
+    weight = 6
+
+[outputs]
+  home = ["html"]
+  section = ["html", "rss"]
+  page = ["html"]
+
+[pagination]
+  pagerSize = 12
 
 [markup.goldmark.renderer]
   unsafe = true
 
-[outputs]
-  home = ["html"]
+[imaging]
+  resampleFilter = "lanczos"
+  [imaging.jpeg]
+    quality = 82
+  [imaging.webp]
+    quality = 82

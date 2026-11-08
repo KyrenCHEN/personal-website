@@ -1,0 +1,32 @@
+{{ define "main" }}
+{{- $pubs := hugo.Data.publications -}}
+{{- $lead := 0 -}}
+{{- range $pubs }}
+  {{- $a := .authors }}{{ $is := false }}
+  {{- range hugo.Data.site.highlight }}{{ if or (hasPrefix $a .) (in $a (print . "*")) }}{{ $is = true }}{{ end }}{{ end }}
+  {{- if $is }}{{ $lead = add $lead 1 }}{{ end }}
+{{- end }}
+{{ partial "page-head.html" . }}
+<div class="wrap page">
+  <div class="pubbar">
+    <p class="mono muted">{{ i18n "pub_total" (dict "Count" (len $pubs)) }} · {{ i18n "pub_lead" (dict "Count" $lead) }} · {{ i18n "corr_note" }}</p>
+    <div class="seg" role="group">
+      <button type="button" class="is-on" data-filter="all">{{ i18n "filter_all" }}</button>
+      <button type="button" data-filter="lead">{{ i18n "filter_lead" }}</button>
+    </div>
+  </div>
+  {{- $n := len $pubs }}
+  {{- $years := slice }}{{ range $pubs }}{{ $years = $years | append .year }}{{ end }}
+  {{- range $y := uniq $years }}
+  <section class="pubyear" data-year="{{ $y }}">
+    <h2 class="pubyear__y mono">{{ $y }}</h2>
+    <ol class="pubs">
+      {{- range where $pubs "year" $y }}
+      {{ partial "pub.html" (dict "p" . "n" $n) }}
+      {{- $n = sub $n 1 }}
+      {{- end }}
+    </ol>
+  </section>
+  {{- end }}
+</div>
+{{ end }}
