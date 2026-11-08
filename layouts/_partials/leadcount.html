@@ -1,0 +1,7 @@
+{{- $n := 0 -}}
+{{- range hugo.Data.publications }}
+  {{- $a := .authors }}{{ $is := false }}
+  {{- range hugo.Data.site.highlight }}{{ if or (hasPrefix $a .) (in $a (print . "*")) }}{{ $is = true }}{{ end }}{{ end }}
+  {{- if $is }}{{ $n = add $n 1 }}{{ end }}
+{{- end }}
+{{- return $n -}}
