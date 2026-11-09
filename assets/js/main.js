@@ -8,8 +8,7 @@
     const ctx = cv.getContext('2d');
     const S = 6, L = 9;
     const seed = [...Array(4)].map((_, k) => ({ f: .02 + Math.random() * .03, a: Math.random() * 6.28, p: Math.random() * 6.28, w: .2 + Math.random() * .3, k: 1 / (k + 1) }));
-    let w, h, cols, rows, f;
-    const t = 7;
+    let w, h, cols, rows, f, t = Math.random() * 50, vis = false, last = 0;
     const size = () => {
       const r = Math.min(devicePixelRatio || 1, 2);
       w = cv.clientWidth; h = cv.clientHeight;
@@ -45,9 +44,18 @@
         ctx.stroke();
       }
     };
+    const loop = now => {
+      if (vis && now - last > 60) { t += .03; draw(); last = now; }
+      requestAnimationFrame(loop);
+    };
     const init = () => { if (size()) draw(); };
     init();
     addEventListener('resize', init, { passive: true });
+    if (!reduce) {
+      new IntersectionObserver(([e]) => { vis = e.isIntersecting && cv.clientWidth > 0; }).observe(cv);
+      document.addEventListener('visibilitychange', () => { if (document.hidden) vis = false; });
+      requestAnimationFrame(loop);
+    }
   };
   document.querySelectorAll('.topo').forEach(topo);
 
