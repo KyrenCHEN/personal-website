@@ -1,5 +1,5 @@
 {{- with .Params.keywords }}
 <ul class="kw">
-  {{- range $i, $k := . }}<li class="c{{ add (mod $i 5) 1 }}">{{ $k }}</li>{{ end }}
+  {{- range $i, $k := . }}<li>{{ $k }}</li>{{ end }}
 </ul>
 {{- end }}

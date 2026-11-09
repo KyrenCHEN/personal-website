@@ -9,7 +9,7 @@
   <span class="nrow__body">
     <span class="card__meta mono"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time> · {{ i18n (print "cat_" $cat) }}</span>
     <span class="nrow__title">{{ .Title }}</span>
-    {{- with .Params.keywords }}<span class="nrow__kw">{{ range $i, $k := first 3 . }}<i class="c{{ add (mod $i 5) 1 }}">{{ $k }}</i>{{ end }}</span>{{ end }}
+    {{- with .Params.keywords }}<span class="nrow__kw">{{ range $i, $k := first 3 . }}<i>{{ $k }}</i>{{ end }}</span>{{ end }}
     <span class="nrow__sum">{{ .Summary | plainify | truncate 90 }}</span>
   </span>
 </a>

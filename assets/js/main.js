@@ -4,8 +4,6 @@
   // Topographic halo: marching-squares isolines over a drifting scalar field.
   const CASES = [null, [[3, 2]], [[2, 1]], [[3, 1]], [[0, 1]], [[3, 0], [2, 1]], [[0, 2]], [[3, 0]],
     [[3, 0]], [[0, 2]], [[0, 1], [3, 2]], [[0, 1]], [[3, 1]], [[2, 1]], [[3, 2]], null];
-  // Hypsometric ramp: blue → green → amber → coral.
-  const RAMP = ['47,107,255', '18,160,103', '242,169,0', '240,82,79'];
   const topo = cv => {
     const ctx = cv.getContext('2d');
     const S = 6, L = 9;
@@ -31,8 +29,7 @@
       ctx.clearRect(0, 0, w, h);
       for (let l = 1; l < L * 2; l++) {
         const lv = lo + (hi - lo) * l / (L * 2);
-        const c = RAMP[Math.min(RAMP.length - 1, Math.floor(l / (L * 2) * RAMP.length))];
-        ctx.strokeStyle = `rgba(${c},${l % 4 === 0 ? .7 : .32})`;
+        ctx.strokeStyle = l % 4 === 0 ? 'rgba(35,72,216,.55)' : 'rgba(35,72,216,.22)';
         ctx.lineWidth = l % 4 === 0 ? 1 : .7;
         ctx.beginPath();
         for (let j = 0; j < rows - 1; j++) for (let i = 0; i < cols - 1; i++) {

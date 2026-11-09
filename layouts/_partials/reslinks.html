@@ -16,6 +16,6 @@
 {{- range index $m "links" }}{{ $out = $out | append (dict "url" .url "label" .name "icon" (.icon | default "link") "c" "c1") }}{{ end }}
 {{- with $out }}
 <div class="res">
-  {{- range . }}<a class="res__a {{ .c }}" href="{{ .url }}" rel="noopener" target="_blank">{{ partial "icon.html" .icon }}{{ .label }}</a>{{ end }}
+  {{- range . }}<a class="res__a" href="{{ .url }}" rel="noopener" target="_blank">{{ partial "icon.html" .icon }}{{ .label }}</a>{{ end }}
 </div>
 {{- end }}
