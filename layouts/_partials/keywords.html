@@ -1,0 +1,5 @@
+{{- with .Params.keywords }}
+<ul class="kw">
+  {{- range $i, $k := . }}<li>{{ $k }}</li>{{ end }}
+</ul>
+{{- end }}

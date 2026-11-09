@@ -1,49 +1,102 @@
-# [Hugo Academic Theme](https://github.com/wowchemy/starter-hugo-academic)
+# Pengfei Chen · Academic Homepage
 
-[![Screenshot](https://raw.githubusercontent.com/wowchemy/wowchemy-hugo-themes/main/academic.png)](https://wowchemy.com/hugo-themes/)
+Bilingual (English / 中文) faculty website built with [Hugo](https://gohugo.io) (≥ 0.156) and deployed on [Netlify](https://www.netlify.com). Self-contained: all templates live in `layouts/`, no external theme.
 
-The Hugo **Academic Resumé Template** empowers you to easily create your job-winning online resumé, showcase your academic publications, and create online courses or knowledge bases to grow your audience.
+Pages: Home · Publications (filter + search) · News · CV.
+Desktop uses a sticky profile sidebar; phones get a single column with a bottom tab bar.
 
-[![Get Started](https://img.shields.io/badge/-Get%20started-ff4655?style=for-the-badge)](https://wowchemy.com/hugo-themes/)
-[![Discord](https://img.shields.io/discord/722225264733716590?style=for-the-badge)](https://discord.com/channels/722225264733716590/742892432458252370/742895548159492138)  
-[![Twitter Follow](https://img.shields.io/twitter/follow/wowchemy?label=Follow%20on%20Twitter)](https://twitter.com/wowchemy)
+## Homepage
 
-️**Trusted by 250,000+ researchers, educators, and students.** Highly customizable via the integrated **no-code, widget-based Wowchemy page builder**, making every site truly personalized ⭐⭐⭐⭐⭐
+Profile (photo with animated contour halo, coordinates, local time) → lede + short bio → Updates (`data/updates.yaml`) → Research topics → Latest News → Recent Publications → Talks (`data/talks.yaml`, hidden while empty) → Contact.
 
-Easily write technical content with plain text Markdown, LaTeX math, diagrams, RMarkdown, or Jupyter, and import publications from BibTeX.
+Headings use Newsreader (self-hosted, SIL OFL, `static/fonts/`); body text uses system fonts, so Chinese renders with PingFang / Microsoft YaHei.
 
-[Check out the latest demo](https://academic-demo.netlify.app/) of what you'll get in less than 10 minutes, or [get inspired by our academics and research groups](https://wowchemy.com/creators/).
+## Edit profile content
 
-The integrated [**Wowchemy**](https://wowchemy.com) website builder and CMS makes it easy to create a beautiful website for free. Edit your site in the CMS (or your favorite editor), generate it with [Hugo](https://github.com/gohugoio/hugo), and deploy with GitHub or Netlify. Customize anything on your site with widgets, light/dark themes, and language packs.
+| File | Contents |
+|---|---|
+| `data/zh.yaml`, `data/en.yaml` | Name, bio, research interests, education, appointments, grants, awards, courses, recruitment, office address |
+| `data/publications.yaml` | Journal articles (shared by both languages; `*` marks corresponding author; optional `doi`) |
+| `data/site.yaml` | Email, phone, photo, CV, academic profile links (Google Scholar / ORCID …) |
+| `static/images/` | Portrait — add `avatar.jpg` (4:5) and update `photo` in `data/site.yaml` |
 
-- 👉 [**Get Started**](https://wowchemy.com/hugo-themes/)
-- 📚 [View the **documentation**](https://wowchemy.com/docs/)
-- 💬 [Chat with the **Wowchemy research community**](https://discord.gg/z8wNYzb) or [**Hugo community**](https://discourse.gohugo.io)
-- 🐦 Twitter: [@wowchemy](https://twitter.com/wowchemy) [@GeorgeCushen](https://twitter.com/GeorgeCushen) [#MadeWithWowchemy](https://twitter.com/search?q=(%23MadeWithWowchemy%20OR%20%23MadeWithAcademic)&src=typed_query)
-- ⬇️ **Automatically import your publications from BibTeX** with the [Hugo Academic CLI](https://github.com/wowchemy/hugo-academic-cli) 
-- 💡 [Suggest an improvement](https://github.com/wowchemy/wowchemy-hugo-themes/issues)
-- ⬆️ **Updating?** View the [Update Guide](https://wowchemy.com/docs/hugo-tutorials/update/) and [Release Notes](https://github.com/wowchemy/wowchemy-hugo-themes/releases)
+## Post news (动态)
 
-## We ask you, humbly, to support this open source movement
+Each post is a folder under `content/news/`:
 
-Today we ask you to defend the open source independence of the Wowchemy website builder and themes 🐧
+```
+content/news/2026-03-new-paper/
+├── index.zh.md        # Chinese text
+├── index.en.md        # English text (optional; omit for a Chinese-only post)
+├── cover.jpg          # optional card thumbnail
+├── talk.mp4           # optional video
+└── gallery/           # optional photo album
+    ├── 01.jpg
+    └── 02.jpg
+```
 
-We're an open source movement that depends on your support to stay online and thriving, but 99.9% of our creators don't give; they simply look the other way.
+Front matter:
 
-### [❤️ Click here to become a GitHub Sponsor, unlocking awesome perks such as _exclusive academic templates and widgets_](https://github.com/sponsors/gcushen)
+```yaml
+---
+title: 论文发表于 Remote Sensing of Environment
+date: 2026-03-15
+category: paper            # paper | award | talk | event | media | team (sets card color)
+keywords: [遥感, 绿视率]     # colored chips under the title
+pdf: paper.pdf             # buttons under the title: a file in this folder or a full URL
+code: https://github.com/...
+data: https://...
+slides: talk.pdf
+links:
+  - name: 项目主页
+    url: https://...
+---
+```
 
-<p align="center"><a href="https://wowchemy.com/templates/" target="_blank" rel="noopener"><img src="https://wowchemy.com/uploads/readmes/academic_logo_200px.png" alt="Hugo Academic Theme for Wowchemy Website Builder"></a></p>
+Writing syntax:
 
-## Demo image credits
+| Purpose | Syntax |
+|---|---|
+| Yellow highlight | `==text==` |
+| Colored highlight | `{{< hl blue >}}text{{< /hl >}}` (blue, green, red, violet, yellow) |
+| Sub / superscript | `PM~2.5~`, `R^2^` |
+| Strikethrough | `~~text~~` |
+| Callout box | `> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]`, `> [!CAUTION]` (optional title after the tag) |
+| Image (click to enlarge) | `{{< img src="photo.jpg" caption="..." >}}` |
+| Local video | `{{< video src="talk.mp4" poster="cover.jpg" >}}` |
+| Bilibili / YouTube | `{{< bilibili id="BV1xx411c7mD" >}}`, `{{< youtube VIDEO_ID >}}` |
+| Photo album | `{{< gallery >}}` (all images in `gallery/`) |
+| PDF (viewer on desktop, card on phones) | `{{< pdf src="paper.pdf" title="..." >}}` |
+| Code file with download | `{{< code file="analysis.py" >}}` |
+| Inline code block | fenced block with a language, e.g. ` ```python ` |
 
-- [Open book](https://unsplash.com/photos/J4kK8b9Fgj8)
-- [Course](https://unsplash.com/photos/JKUTrJ4vK00)
+Highlights and sub/superscripts also work in the YAML text fields (bio, research, updates).
+Publications accept the same `pdf / code / data / slides / doi / links` fields (see `data/publications.yaml`).
 
-## Latest news
-<!--START_SECTION:news-->
-* [Easily make an academic CV website to get more cites and grow your audience 🚀](https:&#x2F;&#x2F;wowchemy.com&#x2F;blog&#x2F;easily-make-academic-website&#x2F;)
-* [What&#39;s new in v5.2?](https:&#x2F;&#x2F;wowchemy.com&#x2F;blog&#x2F;whats-new-in-v5.2&#x2F;)
-* [What&#39;s new in v5.1?](https:&#x2F;&#x2F;wowchemy.com&#x2F;blog&#x2F;whats-new-in-v5.1&#x2F;)
-* [Version 5.0 (February 2021)](https:&#x2F;&#x2F;wowchemy.com&#x2F;blog&#x2F;version-5.0-february-2021&#x2F;)
-* [Version 5.0 Beta 3 (February 2021)](https:&#x2F;&#x2F;wowchemy.com&#x2F;blog&#x2F;version-5.0-beta-3-february-2021&#x2F;)
-<!--END_SECTION:news-->
+Images are resized and converted to WebP automatically. Keep local videos under ~20 MB; host longer ones on Bilibili.
+`content/news/sample-media-post/` demonstrates every feature — delete it when no longer needed.
+
+## Local preview
+
+```bash
+pip install hugo      # or: brew install hugo
+hugo server           # http://localhost:1313  (Chinese: /zh/)
+```
+
+## Deploy
+
+The site is plain static HTML: `hugo --gc --minify` writes everything to `public/`, which any static host can serve.
+
+### Netlify (current)
+
+1. Netlify → *Add new site* → *Import an existing project* → select this repository.
+2. Build settings are read from `netlify.toml`.
+3. Set `baseURL` in `hugo.toml` to the final domain.
+
+### Mainland China hosting
+
+Custom domains on mainland servers/CDN require ICP filing (ICP 备案).
+
+- **Tencent EdgeOne Pages / Makers**: connect this GitHub repo, framework *Hugo*, build command `hugo --gc --minify`, output `public`. Free plan available; mainland acceleration with a custom domain needs ICP filing.
+- **Alibaba Cloud OSS / Tencent COS static website + CDN**: upload `public/`; low cost, ICP filing required for a custom domain.
+- **SYSU personal homepage hosting**: ask the university IT center whether static uploads under `*.sysu.edu.cn` are supported.

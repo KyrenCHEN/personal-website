@@ -1,0 +1,7 @@
+{{- $p := . -}}
+<nav class="tabbar" aria-label="Main">
+  {{- range site.Menus.main }}
+  {{- $on := partial "menu-active.html" (dict "p" $p "m" .) }}
+  <a href="{{ .URL }}"{{ if $on }} class="is-active" aria-current="page"{{ end }}>{{ partial "icon.html" .Params.icon }}<span>{{ i18n (print "tab_" .Identifier) }}</span></a>
+  {{- end }}
+</nav>

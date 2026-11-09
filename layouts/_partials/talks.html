@@ -1,0 +1,9 @@
+{{- $lang := site.Language.Name -}}
+<ol class="tl">
+  {{- range . }}
+  <li><time class="mono">{{ .date }}</time><div>
+    <strong>{{ with .url }}<a href="{{ . }}" rel="noopener" target="_blank">{{ end }}{{ .title }}{{ with .url }}</a>{{ end }}</strong>
+    <span>{{ index . (print "event_" $lang) }}{{ with index . (print "location_" $lang) }} · {{ . }}{{ end }}{{ with .type }} · {{ i18n (print "type_" .) }}{{ end }}{{ with .slides }} · <a href="{{ . | relURL }}">{{ i18n "slides" }}</a>{{ end }}</span>
+  </div></li>
+  {{- end }}
+</ol>

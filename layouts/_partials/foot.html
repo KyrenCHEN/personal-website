@@ -1,0 +1,10 @@
+{{- $d := index hugo.Data site.Language.Name -}}
+{{- $s := hugo.Data.site -}}
+<footer class="foot">
+  <p class="foot__sig">{{ $d.name }}</p>
+  <p class="foot__meta mono">
+    <span>{{ printf "%.4f°N, %.4f°E" $s.coords.lat $s.coords.lon }}</span>
+    <span>© {{ now.Year }}</span>
+    <span>{{ i18n "updated" }} {{ now.Format "2006.01.02" }}</span>
+  </p>
+</footer>

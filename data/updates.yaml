@@ -1,0 +1,51 @@
+# 进展 / Updates — one-line entries shown on the homepage, newest first.
+# date: free text ("2026.01" or "2025"); url: optional link (internal "/news/..." or external).
+# type: paper | award | grant | career | talk  (sets the dot color)
+- date: "2026.01"
+  type: grant
+  zh: 主持中山大学医工融合种子基金项目“融合遥感与地理信息技术的城市眼健康环境暴露评估与干预机制研究”启动
+  en: Started PI project on urban eye-health environmental exposure (SYSU Medicine–Engineering Integration Seed Fund)
+- date: "2025.09"
+  type: grant
+  zh: 技术服务项目“多城市眼健康环境风险指标计算与街景可视化制图服务”启动
+  en: Started technical service project on multi-city eye-health environmental risk indicators and street-view mapping
+- date: "2025"
+  type: paper
+  zh: 季节性绿视率数据集论文发表于 *Scientific Data*
+  en: Seasonal Green View Index dataset published in *Scientific Data*
+  url: /news/2025-scidata-gvi/
+- date: "2025"
+  type: paper
+  zh: 城市可达性 CBA 模型论文发表于 *IJGIS*
+  en: Cost-balanced accessibility (CBA) model published in *IJGIS*
+  url: /news/2025-ijgis-cba/
+- date: "2025"
+  type: award
+  zh: 获国际城市信息学会 Smart City Technology Innovation Award 铜奖
+  en: Bronze Medal, Smart City Technology Innovation Award (ISUI)
+  url: /news/2025-isui-award/
+- date: "2025"
+  type: award
+  zh: 获中山大学第十三届教师教学竞赛教学创新赛道一等奖
+  en: First Prize, 13th SYSU Teaching Competition (Teaching Innovation Track)
+  url: /news/2025-teaching-prize/
+- date: "2023.06"
+  type: career
+  zh: 晋升中山大学副教授
+  en: Promoted to Associate Professor, Sun Yat-sen University
+- date: "2023"
+  type: award
+  zh: 获国际城市信息学会 Smart City Research and Innovation Scheme (SCRIS) 一等奖
+  en: First Prize, Smart City Research and Innovation Scheme (SCRIS), ISUI
+- date: "2023.01"
+  type: grant
+  zh: 主持广东省自然科学基金面上项目启动
+  en: Started PI project funded by the Guangdong Natural Science Foundation (General Program)
+- date: "2022.01"
+  type: grant
+  zh: 主持国家自然科学基金青年科学基金项目启动
+  en: Started PI project funded by the NSFC Young Scientists Fund
+- date: "2020.06"
+  type: career
+  zh: 加入中山大学，任助理教授
+  en: Joined Sun Yat-sen University as Assistant Professor

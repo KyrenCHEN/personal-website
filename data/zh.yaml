@@ -1,0 +1,120 @@
+name: 陈鹏飞
+name_alt: Pengfei CHEN
+position: 副教授
+affiliation: 中山大学 遥感科学与技术学院
+affiliation_url: https://sges.sysu.edu.cn/
+keywords: [城市地理信息系统, 环境健康与暴露, 时空数据建模与分析]
+description: 陈鹏飞，中山大学遥感科学与技术学院副教授。研究方向：城市地理信息系统、环境健康与暴露、时空数据建模与分析。
+
+# Short bio on the homepage; full bio on the Biography page.
+lede: 研究城市环境如何塑造人群暴露与健康，融合遥感、地理信息与时空数据。
+bio_short: |
+  陈鹏飞，中山大学遥感科学与技术学院副教授。武汉大学遥感信息工程学院工学博士，香港理工大学测绘与地理资讯学系哲学博士（联合培养）。
+  主要从事**城市地理信息系统**、**环境健康与暴露**及**时空数据建模与分析**研究，在 *IJGIS*、*IEEE TGRS*、*IEEE T-ITS*、*Scientific Data* 等期刊发表学术论文 30 余篇。
+bio: |
+  陈鹏飞，中山大学遥感科学与技术学院副教授。2012 年获武汉大学遥感信息工程学院工学学士学位（辅修经济学学士），2015 年获该院理学硕士学位，
+  2019 年获武汉大学工学博士学位，2020 年获香港理工大学测绘与地理资讯学系哲学博士学位（联合培养）。2020 年加入中山大学任助理教授，2023 年起任副教授。
+
+  主要研究方向为城市地理信息系统、环境健康与暴露、时空数据建模与分析，重点关注城市绿地服务与可达性、城市活力与人群移动、
+  全球地表覆盖数据无参考精度评估等问题。主持国家自然科学基金青年项目、广东省自然科学基金面上项目等科研项目，
+  在 *International Journal of Geographical Information Science*、*IEEE Transactions on Geoscience and Remote Sensing*、
+  *IEEE Transactions on Intelligent Transportation Systems*、*Scientific Data* 等期刊发表学术论文 30 余篇。
+  曾获国际城市信息学会 Smart City Technology Innovation Award 铜奖、中山大学教师教学竞赛教学创新赛道一等奖、测绘科技进步奖特等奖等。
+
+interests:
+  - icon: grid
+    title: 城市地理信息系统
+    text: 城市绿地服务能力与可达性评价、城市活力与韧性、街景绿视率制图等城市空间分析问题。
+  - icon: pulse
+    title: 环境健康与暴露
+    text: 融合遥感与地理信息技术的环境暴露评估，包括城市眼健康环境风险、室内传播暴露模拟与健康服务可达性。
+  - icon: route
+    title: 时空数据建模与分析
+    text: 轨迹不确定性建模、个体位置预测、地铁客流预测等面向人群移动大数据的时空深度学习方法。
+  - icon: satellite
+    title: 地表覆盖数据质量评估
+    text: 全球地表覆盖分类产品的无参考精度估计与分类不确定性分析。
+
+education:
+  - period: 2015.09 – 2020.09
+    title: 哲学博士（联合培养）
+    org: 香港理工大学 测绘与地理资讯学系
+  - period: 2015.09 – 2019.12
+    title: 工学博士
+    org: 武汉大学 遥感信息工程学院
+  - period: 2012.09 – 2015.07
+    title: 理学硕士
+    org: 武汉大学 遥感信息工程学院
+  - period: 2008.09 – 2012.07
+    title: 工学学士
+    org: 武汉大学 遥感信息工程学院
+  - period: 2008.09 – 2012.07
+    title: 经济学学士（辅修）
+    org: 武汉大学 WTO 学院
+
+employment:
+  - period: 2023.06 – 至今
+    title: 副教授
+    org: 中山大学
+  - period: 2020.06 – 2023.06
+    title: 助理教授
+    org: 中山大学
+  - period: 2015.02 – 2015.05
+    title: 研究助理
+    org: 香港理工大学
+
+grants:
+  - period: 2026.01 – 2026.12
+    title: 融合遥感与地理信息技术的城市眼健康环境暴露评估与干预机制研究
+    funder: 中山大学医工融合种子基金项目
+    role: 主持
+  - period: 2025.09 – 2028.07
+    title: 多城市眼健康环境风险指标计算与街景可视化制图服务
+    funder: 技术服务项目
+    role: 主持
+  - period: 2024.04 – 2024.12
+    title: 基于城市大数据的住宅单元多粒度划分关键技术与应用服务项目
+    funder: 技术服务项目
+    role: 主持
+  - period: 2023.01 – 2025.12
+    title: 基于人群活动幂律特征的城市绿地服务能力评价及其时空变化研究——以深圳市为例
+    funder: 广东省自然科学基金面上项目
+    role: 主持
+  - period: 2022.01 – 2024.12
+    title: 全球地表覆盖分类数据无参考精度估计方法研究
+    funder: 国家自然科学基金青年科学基金项目
+    role: 主持
+
+# teaching: true → also listed on the Teaching page
+awards:
+  - year: 2025
+    title: 中山大学第十三届教师教学竞赛
+    org: 中山大学，教学创新赛道一等奖
+    teaching: true
+  - year: 2025
+    title: Smart City Technology Innovation Award
+    org: The International Society for Urban Informatics，铜奖
+  - year: 2023
+    title: Smart City Research and Innovation Scheme (SCRIS)
+    org: The International Society for Urban Informatics，一等奖
+  - year: 2021
+    title: 中山大学第十届教学成果奖
+    org: 中山大学，二等奖
+    teaching: true
+  - year: 2018
+    title: 王之卓创新人才奖学金
+    org: 武汉大学
+  - year: 2017
+    title: 测绘科技进步奖
+    org: 中国测绘地理信息学会，特等奖（14/26）
+
+courses: []   # 例如：- 地理信息系统原理（本科生）
+
+recruit: |
+  课题组欢迎具有地理信息科学、遥感、测绘、城乡规划、公共卫生或计算机等背景的**博士/硕士研究生**、**本科生科研助理**加入，
+  从事城市地理信息系统、环境健康与暴露、时空数据建模等方向研究。有意者请将个人简历及成绩单发送至邮箱。
+
+contact:
+  office: 珠海校区 瀚林三号 E316 室
+  address: 广东省珠海市唐家湾 中山大学珠海校区
+  postcode: "519082"

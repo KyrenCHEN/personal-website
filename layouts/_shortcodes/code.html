@@ -1,0 +1,8 @@
+{{- /* {{< code file="analysis.py" >}} — show a code file from the post folder with highlighting and a download link. Optional lang="python". */ -}}
+{{- with .Page.Resources.Get (.Get "file") -}}
+{{- $lang := $.Get "lang" | default (strings.TrimPrefix "." (path.Ext .Name)) -}}
+<figure class="codefile">
+  <figcaption><span class="mono">{{ .Name }}</span><a href="{{ .RelPermalink }}" download>{{ partial "icon.html" "download" }}{{ i18n "download" }}</a></figcaption>
+  {{ highlight (trim .Content "\n") $lang "" }}
+</figure>
+{{- else }}{{ errorf "code: %q not found in %s" ($.Get "file") $.Page.File.Path }}{{ end -}}

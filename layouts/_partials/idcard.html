@@ -1,0 +1,15 @@
+{{- /* Avatar with topographic halo, name, role, links. ctx: dict "size" "lg|sm" */ -}}
+{{- $d := index hugo.Data site.Language.Name -}}
+{{- $s := hugo.Data.site -}}
+<div class="id">
+  <div class="id__avatar">
+    <canvas class="topo" aria-hidden="true"></canvas>
+    <img src="{{ $s.photo | relURL }}" alt="{{ $d.name }}" width="240" height="240">
+  </div>
+  <div class="id__text">
+    <p class="id__name">{{ $d.name }}<span>{{ $d.name_alt }}</span></p>
+    <p class="id__role">{{ $d.position }}</p>
+    <p class="id__aff"><a href="{{ $d.affiliation_url }}" rel="noopener" target="_blank">{{ $d.affiliation }}</a></p>
+    <p class="id__geo mono"><span>{{ printf "%.2f°N %.2f°E" $s.coords.lat $s.coords.lon }}</span><span class="clock"></span></p>
+  </div>
+</div>

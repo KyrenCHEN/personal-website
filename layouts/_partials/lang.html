@@ -1,0 +1,13 @@
+{{- $p := . -}}
+<div class="lang">
+  {{- range hugo.Sites }}
+    {{- $l := .Language }}
+    {{- if eq $l.Name site.Language.Name }}
+    <span aria-current="true">{{ $l.Label }}</span>
+    {{- else }}
+      {{- $t := .Home }}
+      {{- range $p.Translations }}{{ if eq .Language.Name $l.Name }}{{ $t = . }}{{ end }}{{ end }}
+    <a href="{{ $t.RelPermalink }}" hreflang="{{ $l.Locale }}" lang="{{ $l.Locale }}">{{ $l.Label }}</a>
+    {{- end }}
+  {{- end }}
+</div>

@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{- $cat := .Params.category | default "event" -}}
+<article class="post">
+  <header class="phead">
+    <p class="phead__crumb mono"><a href="{{ .Parent.RelPermalink }}">{{ i18n "news" }}</a> / <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time> · {{ i18n (print "cat_" $cat) }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ partial "keywords.html" . }}
+    {{ partial "reslinks.html" (dict "m" .Params "page" .) }}
+  </header>
+  <div class="prose post__body">
+    {{- with .Resources.GetMatch "cover.*" }}{{ if not $.Params.hide_cover }}
+    <figure class="media">
+      {{- if eq .MediaType.SubType "svg" }}<img src="{{ .RelPermalink }}" alt="">
+      {{- else }}{{ $img := .Resize "1440x webp" }}<img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="">{{ end }}
+    </figure>
+    {{- end }}{{ end }}
+    {{ .Content }}
+  </div>
+  <nav class="postnav">
+    {{- with .NextInSection }}<a href="{{ .RelPermalink }}"><span class="mono">← {{ i18n "prev" }}</span>{{ .Title }}</a>{{ else }}<span></span>{{ end }}
+    {{- with .PrevInSection }}<a class="r" href="{{ .RelPermalink }}"><span class="mono">{{ i18n "next" }} →</span>{{ .Title }}</a>{{ end }}
+  </nav>
+</article>
+{{ end }}

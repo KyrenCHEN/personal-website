@@ -1,0 +1,18 @@
+{{- $p := .p -}}
+{{- $a := $p.authors -}}
+{{- $lead := false -}}
+{{- range hugo.Data.site.highlight }}
+  {{- if or (hasPrefix $a .) (in $a (print . "*")) }}{{ $lead = true }}{{ end }}
+  {{- $a = replace $a . (printf "<b>%s</b>" .) }}
+{{- end }}
+{{- $url := cond (isset $p "doi") (print "https://doi.org/" $p.doi) ($p.url | default "") -}}
+<li class="pub" data-lead="{{ $lead }}" data-q="{{ lower (print $p.title " " $p.authors " " $p.venue) }}">
+  {{- with .n }}<span class="pub__n mono">{{ . }}</span>{{ end }}
+  <div class="pub__body">
+    <p class="pub__title">{{ with $url }}<a href="{{ . }}" rel="noopener" target="_blank">{{ end }}{{ $p.title }}{{ with $url }}</a>{{ end }}</p>
+    <p class="pub__auth">{{ $a | safeHTML }}</p>
+    <p class="pub__venue"><em>{{ $p.venue }}</em>{{ with $p.details }}, {{ . }}{{ end }}{{ if not $.n }} · {{ $p.year }}{{ end }}
+      {{- range $p.tags }} <span class="badge">{{ . }}</span>{{ end }}</p>
+    {{ partial "reslinks.html" (dict "m" $p) }}
+  </div>
+</li>

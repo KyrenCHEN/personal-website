@@ -1,0 +1,31 @@
+# Shared across both languages.
+email: sges@mail.sysu.edu.cn      # school mailbox from the SYSU profile; replace with a personal address if preferred
+phone: "+86-756-3668354"
+photo: images/avatar.svg          # replace with images/avatar.jpg (portrait, 4:5)
+cv:                               # files in static/uploads/; leave empty to hide the button
+  en: ""
+  zh: ""
+
+# Hero readout (Zhuhai Campus).
+coords:
+  lat: 22.3497
+  lon: 113.5853
+
+# Uncomment and fill in; icons: scholar | orcid | researchgate | github | link
+links:
+  - name: SYSU Faculty Profile
+    label: SYSU
+    icon: link
+    url: https://sges.sysu.edu.cn/teacher/601
+  # - name: Google Scholar
+  #   icon: scholar
+  #   url: https://scholar.google.com/citations?user=XXXXXXXX
+  # - name: ORCID
+  #   icon: orcid
+  #   url: https://orcid.org/0000-0000-0000-0000
+  # - name: ResearchGate
+  #   icon: researchgate
+  #   url: https://www.researchgate.net/profile/XXXX
+
+# Author-name forms to emphasize in publication lists.
+highlight: ["Chen, P."]

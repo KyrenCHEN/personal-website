@@ -1,0 +1,5 @@
+<header class="phead">
+  <p class="phead__crumb mono"><a href="{{ site.Home.RelPermalink }}">~</a>{{ strings.TrimSuffix "/" (strings.TrimPrefix (strings.TrimSuffix "/" site.Home.RelPermalink) .RelPermalink) }}</p>
+  <h1>{{ .Title }}</h1>
+  {{- with .Params.subtitle }}<p class="phead__sub">{{ . }}</p>{{ end }}
+</header>
