@@ -2,7 +2,7 @@
 {{- $pubs := hugo.Data.publications -}}
 {{- $lead := partial "leadcount.html" . -}}
 {{ partial "phead.html" . }}
-<div class="pubtools reveal">
+<div class="pubtools">
   <p class="mono">{{ i18n "pub_total" (dict "Count" (len $pubs)) }} · {{ i18n "pub_lead" (dict "Count" $lead) }} · {{ i18n "corr_note" }}</p>
   <div class="pubtools__row">
     <div class="seg" role="group">

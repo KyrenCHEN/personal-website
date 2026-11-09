@@ -8,7 +8,8 @@
     const ctx = cv.getContext('2d');
     const S = 6, L = 9;
     const seed = [...Array(4)].map((_, k) => ({ f: .02 + Math.random() * .03, a: Math.random() * 6.28, p: Math.random() * 6.28, w: .2 + Math.random() * .3, k: 1 / (k + 1) }));
-    let w, h, cols, rows, f, t = Math.random() * 50, vis = false, last = 0;
+    let w, h, cols, rows, f;
+    const t = 7;
     const size = () => {
       const r = Math.min(devicePixelRatio || 1, 2);
       w = cv.clientWidth; h = cv.clientHeight;
@@ -44,44 +45,11 @@
         ctx.stroke();
       }
     };
-    const loop = now => {
-      if (vis && now - last > 60) { t += .03; draw(); last = now; }
-      requestAnimationFrame(loop);
-    };
     const init = () => { if (size()) draw(); };
     init();
     addEventListener('resize', init, { passive: true });
-    if (!reduce) {
-      new IntersectionObserver(([e]) => { vis = e.isIntersecting && cv.clientWidth > 0; }).observe(cv);
-      requestAnimationFrame(loop);
-    }
   };
   document.querySelectorAll('.topo').forEach(topo);
-
-  // Reveal on scroll.
-  const rv = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && !reduce) {
-    const io = new IntersectionObserver(es => es.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
-    }), { rootMargin: '0px 0px -6% 0px' });
-    rv.forEach(el => io.observe(el));
-  } else rv.forEach(el => el.classList.add('is-in'));
-
-  // Count-up figures.
-  const nums = document.querySelectorAll('[data-count]');
-  if (nums.length && !reduce && 'IntersectionObserver' in window) {
-    const run = el => {
-      const end = +el.dataset.count, t0 = performance.now(), dur = 1100;
-      const step = now => {
-        const k = Math.min((now - t0) / dur, 1), e = 1 - Math.pow(1 - k, 3);
-        el.textContent = Math.round(end * e);
-        if (k < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    };
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } }), { threshold: .6 });
-    nums.forEach(el => io.observe(el));
-  }
 
   // Mobile bar: reveal name once the intro identity scrolls away.
   const bar = document.querySelector('.mbar');

@@ -2,39 +2,39 @@
 {{- $d := index hugo.Data site.Language.Name -}}
 {{ partial "phead.html" . }}
 {{- range $k := slice "employment" "education" }}
-<section class="sec reveal">
+<section class="sec">
   {{ partial "sec.html" (dict "title" (i18n $k)) }}
   <ol class="tl">
     {{- range index $d $k }}<li><time class="mono">{{ .period }}</time><div><strong>{{ .title }}</strong><span>{{ .org }}</span></div></li>{{ end }}
   </ol>
 </section>
 {{- end }}
-<section class="sec reveal">
+<section class="sec">
   {{ partial "sec.html" (dict "title" (i18n "grants")) }}
   <ol class="tl">
     {{- range $d.grants }}<li><time class="mono">{{ .period }}</time><div><strong>{{ .title }}</strong><span>{{ .funder }} · {{ .role }}</span></div></li>{{ end }}
   </ol>
 </section>
-<section class="sec reveal">
+<section class="sec">
   {{ partial "sec.html" (dict "title" (i18n "awards")) }}
   <ol class="tl">
     {{- range $d.awards }}<li><time class="mono">{{ .year }}</time><div><strong>{{ .title }}</strong><span>{{ .org }}</span></div></li>{{ end }}
   </ol>
 </section>
 {{- with hugo.Data.talks }}
-<section class="sec reveal">
+<section class="sec">
   {{ partial "sec.html" (dict "title" (i18n "talks")) }}
   {{ partial "talks.html" . }}
 </section>
 {{- end }}
 {{- if or $d.courses $d.recruit }}
-<section class="sec reveal">
+<section class="sec">
   {{ partial "sec.html" (dict "title" (i18n "teaching")) }}
   {{- with $d.courses }}<ul class="plain">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}
   {{- with $d.recruit }}<div class="note"><h3>{{ i18n "recruit" }}</h3>{{ . | $.RenderString }}</div>{{ end }}
 </section>
 {{- end }}
-<section class="sec reveal">
+<section class="sec">
   {{ partial "sec.html" (dict "title" (i18n "bio")) }}
   <div class="prose">{{ $d.bio | .RenderString }}</div>
 </section>

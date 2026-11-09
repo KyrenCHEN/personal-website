@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{- $cat := .Params.category | default "event" -}}
 <article class="post">
-  <header class="phead reveal">
+  <header class="phead">
     <p class="phead__crumb mono"><a href="{{ .Parent.RelPermalink }}">{{ i18n "news" }}</a> / <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time> · {{ i18n (print "cat_" $cat) }}</p>
     <h1>{{ .Title }}</h1>
     {{ partial "keywords.html" . }}
