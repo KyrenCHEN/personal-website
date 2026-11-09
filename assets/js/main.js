@@ -51,6 +51,22 @@
   };
   document.querySelectorAll('.topo').forEach(topo);
 
+  // Count-up figures.
+  const nums = document.querySelectorAll('[data-count]');
+  if (nums.length && !reduce && 'IntersectionObserver' in window) {
+    const run = el => {
+      const end = +el.dataset.count, t0 = performance.now(), dur = 1100;
+      const step = now => {
+        const k = Math.min((now - t0) / dur, 1), e = 1 - Math.pow(1 - k, 3);
+        el.textContent = Math.round(end * e);
+        if (k < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } }), { threshold: .6 });
+    nums.forEach(el => io.observe(el));
+  }
+
   // Mobile bar: reveal name once the intro identity scrolls away.
   const bar = document.querySelector('.mbar');
   const anchor = document.querySelector('.intro__id') || document.querySelector('.phead');

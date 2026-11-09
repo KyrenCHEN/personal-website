@@ -10,10 +10,10 @@
   <div class="prose">{{ $d.bio_short | .RenderString }}</div>
   <a class="textlink" href="{{ relLangURL "bio/" }}">{{ i18n "cv" }} <span aria-hidden="true">→</span></a>
   <dl class="stats">
-    <div><dt>{{ i18n "stat_pubs" }}</dt><dd>{{ len $pubs }}</dd></div>
-    <div><dt>{{ i18n "stat_lead" }}</dt><dd>{{ partial "leadcount.html" . }}</dd></div>
-    <div><dt>{{ i18n "stat_grants" }}</dt><dd>{{ len $d.grants }}</dd></div>
-    <div><dt>{{ i18n "stat_awards" }}</dt><dd>{{ len $d.awards }}</dd></div>
+    <div><dt>{{ i18n "stat_pubs" }}</dt><dd data-count="{{ len $pubs }}">{{ len $pubs }}</dd></div>
+    <div><dt>{{ i18n "stat_lead" }}</dt>{{ $lead := partial "leadcount.html" . }}<dd data-count="{{ $lead }}">{{ $lead }}</dd></div>
+    <div><dt>{{ i18n "stat_grants" }}</dt><dd data-count="{{ len $d.grants }}">{{ len $d.grants }}</dd></div>
+    <div><dt>{{ i18n "stat_awards" }}</dt><dd data-count="{{ len $d.awards }}">{{ len $d.awards }}</dd></div>
   </dl>
 </section>
 
